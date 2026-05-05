@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Audit Cybersécurité Gratuit – Activium Information Design</title>
+    <meta name="author" content="activium-id.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Évaluez gratuitement votre niveau de sécurité. Diagnostic complet de votre exposition aux risques cyber, sans engagement — Activium Information Design.">
+
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <style>
+        :root { --brand: #cf12a0 !important; }
+        .tf-header { padding-top: 24px !important; }
+        .tf-header.header2 .header-inner, .tf-header .header-inner { max-width: 1380px !important; width: calc(100% - 40px) !important; padding: 10px 20px !important; background: rgba(8, 7, 28, 0.88) !important; backdrop-filter: blur(28px) saturate(160%) !important; -webkit-backdrop-filter: blur(28px) saturate(160%) !important; border: 1px solid rgba(207,18,160,0.22) !important; border-radius: 100px !important; box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset !important; }
+        .logo-site { flex-shrink: 0 !important; } .logo-site svg { display: block !important; }
+        .nav-menu-main { gap: 2px !important; }
+        .item-link { font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.04em !important; white-space: nowrap !important; padding: 7px 14px !important; border-radius: 100px !important; color: rgba(255,255,255,0.78) !important; transition: all 0.2s ease !important; }
+        .item-link:hover, .item-link.active { background: rgba(207,18,160,0.15) !important; color: #f580e0 !important; -webkit-text-fill-color: #f580e0 !important; }
+        .item-link::before { display: none !important; }
+        .sub-menu { background: #0a0920 !important; border: 1px solid rgba(207,18,160,0.2) !important; border-radius: 16px !important; box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important; }
+        .sub-menu .item-link { border-radius: 8px !important; color: rgba(255,255,255,0.7) !important; }
+        .sub-menu .item-link:hover { background: rgba(207,18,160,0.12) !important; color: #f580e0 !important; -webkit-text-fill-color: #f580e0 !important; }
+        .tf-header a.tf-btn { font-size: 12px !important; padding: 9px 20px !important; white-space: nowrap !important; flex-shrink: 0 !important; border-radius: 100px !important; }
+        .heading-sub, .heading-sub.style-1 { color: #cf12a0 !important; }
+        .tf-btn, a.tf-btn, button.tf-btn { background: linear-gradient(135deg, #cf12a0 0%, #9b0d78 100%) !important; border-color: #cf12a0 !important; color: #fff !important; }
+        .tf-btn:hover, a.tf-btn:hover, button.tf-btn:hover { background: linear-gradient(135deg, #1e1b7e 0%, #151454 100%) !important; border-color: #151454 !important; }
+        .tf-btn-2 { color: #cf12a0 !important; border-color: rgba(207,18,160,0.45) !important; }
+        .tf-btn-2:hover { background: rgba(207,18,160,0.12) !important; border-color: #cf12a0 !important; }
+        #goTop { border-color: rgba(207,18,160,0.4) !important; }
+        .tf-social-1 a:hover { color: #cf12a0 !important; }
+        .offcanvas-menu { background: #050510 !important; }
+        .mb-menu-link:hover .text { color: #cf12a0 !important; }
+        .footer-image img { opacity: 0.035 !important; }
+        @media (max-width: 1200px) { .item-link { font-size: 11.5px !important; padding: 6px 7px !important; } .nav-menu-main { gap: 0 !important; } }
+        @media (max-width: 991px) { .tf-header .box-navigation { display: none !important; } }
+
+        /* Page specifics */
+        .audit-hero { background: #000; padding: 140px 0 80px; position: relative; overflow: hidden; }
+        .audit-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(207,18,160,0.25) 0%, transparent 60%); }
+        .audit-hero .container { position: relative; z-index: 2; }
+        .audit-includes { background: #07071a; padding: 70px 0; }
+        .include-item { display: flex; gap: 16px; align-items: flex-start; padding: 24px; background: rgba(255,255,255,0.02); border: 1px solid rgba(207,18,160,0.15); border-radius: 12px; }
+        .include-item .icon-box { width: 48px; height: 48px; border-radius: 50%; background: rgba(207,18,160,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; border: 1px solid rgba(207,18,160,0.25); }
+        .include-item i { color: #cf12a0; font-size: 1.2rem; }
+        .include-item h6 { color: #fff; margin-bottom: 6px; }
+        .include-item p { color: rgba(255,255,255,0.6); font-size: 0.88rem; margin: 0; }
+        .audit-form-section { background: linear-gradient(135deg, #070717 0%, #0e0c28 100%); padding: 80px 0; }
+        .trust-badge { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border: 1px solid rgba(207,18,160,0.25); border-radius: 100px; background: rgba(207,18,160,0.06); font-size: 0.85rem; color: rgba(255,255,255,0.8); font-weight: 600; }
+        .trust-badge i { color: #cf12a0; }
+
+        /* Form styles */
+        .form-activium { background: rgba(255,255,255,0.03); border: 1px solid rgba(207,18,160,0.2); border-radius: 20px; padding: 40px; }
+        .form-activium label { display: block; color: rgba(255,255,255,0.75); font-weight: 600; font-size: 0.85rem; margin-bottom: 8px; letter-spacing: 0.03em; }
+        .form-activium input, .form-activium select, .form-activium textarea {
+            width: 100%; background: rgba(255,255,255,0.05); border: 1px solid rgba(207,18,160,0.2); border-radius: 10px;
+            padding: 12px 16px; color: #fff; font-size: 0.95rem; transition: border-color 0.2s;
+            -webkit-appearance: none; appearance: none;
+        }
+        .form-activium input:focus, .form-activium select:focus, .form-activium textarea:focus { outline: none; border-color: #cf12a0; background: rgba(207,18,160,0.05); }
+        .form-activium input::placeholder, .form-activium textarea::placeholder { color: rgba(255,255,255,0.3); }
+        .form-activium select option { background: #0a0920; color: #fff; }
+        .form-activium textarea { min-height: 120px; resize: vertical; }
+        .form-group { margin-bottom: 20px; }
+        .form-activium .submit-btn { width: 100%; padding: 16px; font-size: 1rem; font-weight: 700; border: none; cursor: pointer; border-radius: 100px; }
+    </style>
+</head>
+
+<body class="counter-scroll">
+    <button id="goTop"><span class="border-progress"></span><span class="ic-wrap"><span class="icon icon-long-arrow-alt-up-solid"></span></span></button>
+
+    <main id="wrapper">
+        <header class="tf-header header2">
+            <div class="header-inner">
+                <a href="index-activium.html" class="logo-site" style="text-decoration:none;">
+                    <svg width="210" height="54" viewBox="0 0 210 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 42 Q22 34 42 42 Q62 50 82 42 Q102 34 122 42 Q142 50 162 42 Q182 34 206 40" stroke="#cf12a0" stroke-width="1.3" fill="none" opacity="0.45" stroke-linecap="round"/>
+                        <rect x="0" y="8" width="3" height="38" rx="2" fill="url(#lgAccAC)"/>
+                        <text x="14" y="32" font-family="'Arial Black','Arial',sans-serif" font-size="23" font-weight="900" fill="#ffffff" letter-spacing="2.5">ACTIVIUM</text>
+                        <text x="15" y="46" font-family="'Arial','Helvetica',sans-serif" font-size="8.5" font-weight="600" fill="#cf12a0" letter-spacing="4.2">INFORMATION DESIGN</text>
+                        <defs><linearGradient id="lgAccAC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cf12a0"/><stop offset="100%" stop-color="#151454"/></linearGradient></defs>
+                    </svg>
+                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item"><a href="index-activium.html" class="item-link link1">Accueil</a></li>
+                        <li class="menu-item has-sub">
+                            <a href="#" class="item-link link1">Services <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="service-cyber.html" class="item-link">Cybersécurité</a></li>
+                                <li><a href="service-cloud.html" class="item-link">Cloud & Infra</a></li>
+                                <li><a href="service-workplace.html" class="item-link">Modern Workplace</a></li>
+                                <li><a href="service-reseaux.html" class="item-link">Réseaux</a></li>
+                                <li><a href="service-ia.html" class="item-link">IA & Automatisation</a></li>
+                                <li><a href="service-conseil.html" class="item-link">Conseil</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-sub">
+                            <a href="audit-cyber.html" class="item-link link1 active">Audits <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="audit-cyber.html" class="item-link active">Audit Cyber</a></li>
+                                <li><a href="audit-infra.html" class="item-link">Audit Infra</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"><a href="index-activium.html#about" class="item-link link1">À propos</a></li>
+                        <li class="menu-item"><a href="index-activium.html#contact" class="item-link link1">Contact</a></li>
+                    </ul>
+                </div>
+                <a href="devis.html" class="tf-btn d-lg-flex d-none">Demande de Devis</a>
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex"><i class="icon icon-grip-lines-solid"></i></a>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <section class="audit-hero">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <div class="heading-sub fw-semibold mb-16" style="color:#cf12a0;display:inline-block;padding:6px 18px;border:1px solid rgba(207,18,160,0.35);border-radius:100px;background:rgba(207,18,160,0.08);font-size:0.85rem;">Audit Cybersécurité — Gratuit</div>
+                        <h1 class="text-white fw-semibold mb-20" style="font-size:clamp(2rem,5vw,3.2rem);line-height:1.15;">Évaluez gratuitement votre<br><span style="background:linear-gradient(130deg,#cf12a0,#e855c8,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">niveau de sécurité</span></h1>
+                        <p class="text-neutral-400 mb-32" style="font-size:1.05rem;max-width:580px;margin:0 auto 32px;">Notre équipe réalise un diagnostic complet de votre exposition aux risques cyber, sans engagement. Résultats en 5 jours ouvrés.</p>
+                        <div class="d-flex gap-16 justify-content-center flex-wrap mb-0">
+                            <span class="trust-badge"><i class="icon icon-clock-solid"></i>Résultat sous 5 jours ouvrés</span>
+                            <span class="trust-badge"><i class="icon icon-lock-solid"></i>100% confidentiel</span>
+                            <span class="trust-badge"><i class="icon icon-check-circle-solid"></i>Sans engagement</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CE QUE COMPREND L'AUDIT -->
+        <section class="audit-includes">
+            <div class="container">
+                <div class="heading-section center mb-48">
+                    <div class="heading-sub fw-semibold">Ce que comprend l'audit</div>
+                    <h2 class="heading-title text-white">Un diagnostic complet <span style="color:#cf12a0;">en 4 axes</span></h2>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="include-item">
+                            <div class="icon-box"><i class="icon icon-globe-solid"></i></div>
+                            <div>
+                                <h6>Analyse de l'exposition externe</h6>
+                                <p>Cartographie de votre surface d'attaque exposée sur internet : ports ouverts, services, certificats, fuites de données.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="include-item">
+                            <div class="icon-box"><i class="icon icon-cogs-solid"></i></div>
+                            <div>
+                                <h6>Revue des configurations critiques</h6>
+                                <p>Analyse des configurations Active Directory, firewall, messagerie et politiques de mots de passe.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="include-item">
+                            <div class="icon-box"><i class="icon icon-bug-solid"></i></div>
+                            <div>
+                                <h6>Identification des vulnérabilités</h6>
+                                <p>Scan de vulnérabilités sur votre périmètre accessible, identification des CVE critiques non patchées.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="include-item">
+                            <div class="icon-box"><i class="icon icon-file-alt-solid"></i></div>
+                            <div>
+                                <h6>Rapport de recommandations priorisées</h6>
+                                <p>Rapport exécutif et technique avec recommandations classées par criticité et plan d'action chiffré.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORMULAIRE -->
+        <section class="audit-form-section">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8 col-xl-7">
+                        <div class="text-center mb-40">
+                            <div class="heading-sub fw-semibold mb-12">Formulaire d'audit</div>
+                            <h2 class="text-white fw-semibold" style="font-size:clamp(1.6rem,3vw,2.2rem);">Demander mon audit gratuit</h2>
+                            <p class="text-neutral-400 mt-12">Remplissez ce formulaire, notre équipe vous contactera sous 24h pour planifier votre audit.</p>
+                        </div>
+                        <form class="form-activium" action="#" method="post">
+                            <div class="row g-0">
+                                <div class="col-md-6 form-group pe-md-2">
+                                    <label for="audit-prenom">Prénom *</label>
+                                    <input type="text" id="audit-prenom" name="prenom" placeholder="Votre prénom" required>
+                                </div>
+                                <div class="col-md-6 form-group ps-md-2">
+                                    <label for="audit-nom">Nom *</label>
+                                    <input type="text" id="audit-nom" name="nom" placeholder="Votre nom" required>
+                                </div>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-md-6 form-group pe-md-2">
+                                    <label for="audit-email">Email professionnel *</label>
+                                    <input type="email" id="audit-email" name="email" placeholder="vous@entreprise.com" required>
+                                </div>
+                                <div class="col-md-6 form-group ps-md-2">
+                                    <label for="audit-tel">Téléphone *</label>
+                                    <input type="tel" id="audit-tel" name="telephone" placeholder="+33 1 XX XX XX XX" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="audit-societe">Société *</label>
+                                <input type="text" id="audit-societe" name="societe" placeholder="Nom de votre entreprise" required>
+                            </div>
+                            <div class="row g-0">
+                                <div class="col-md-6 form-group pe-md-2">
+                                    <label for="audit-secteur">Secteur d'activité *</label>
+                                    <select id="audit-secteur" name="secteur" required>
+                                        <option value="" disabled selected>Choisir un secteur</option>
+                                        <option>Finance & Banque</option>
+                                        <option>Santé</option>
+                                        <option>Industrie & Manufacturing</option>
+                                        <option>Retail & Distribution</option>
+                                        <option>Transport & Logistique</option>
+                                        <option>Énergie & Utilities</option>
+                                        <option>Administration publique</option>
+                                        <option>Services professionnels</option>
+                                        <option>Technologie & IT</option>
+                                        <option>Autre</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 form-group ps-md-2">
+                                    <label for="audit-effectif">Nombre d'employés *</label>
+                                    <select id="audit-effectif" name="effectif" required>
+                                        <option value="" disabled selected>Choisir une tranche</option>
+                                        <option>Moins de 50</option>
+                                        <option>50 – 200</option>
+                                        <option>200 – 500</option>
+                                        <option>500 – 2 000</option>
+                                        <option>Plus de 2 000</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="audit-message">Message (optionnel)</label>
+                                <textarea id="audit-message" name="message" placeholder="Décrivez brièvement votre contexte, vos enjeux de sécurité ou toute information utile pour préparer votre audit..."></textarea>
+                            </div>
+                            <button type="submit" class="tf-btn submit-btn">Demander mon audit gratuit</button>
+                            <p class="text-center mt-16" style="font-size:0.8rem;color:rgba(255,255,255,0.4);">En soumettant ce formulaire, vous acceptez que vos données soient utilisées pour traiter votre demande. Aucune donnée n'est partagée avec des tiers.</p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FOOTER -->
+        <footer>
+            <div class="footer-image"><img class="effectFade fadeUp" src="assets/images/logo/logo-footer.png" alt=""></div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index-activium.html" class="footer-logo" style="text-decoration:none;">
+                        <svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 44 Q24 36 48 44 Q72 52 96 44 Q120 36 144 44 Q168 52 196 44 Q210 40 220 42" stroke="#cf12a0" stroke-width="1.4" fill="none" opacity="0.5" stroke-linecap="round"/>
+                            <rect x="0" y="8" width="3.5" height="40" rx="2" fill="url(#ftAccAC)"/>
+                            <text x="16" y="33" font-family="'Arial Black','Arial',sans-serif" font-size="25" font-weight="900" fill="#ffffff" letter-spacing="2.5">ACTIVIUM</text>
+                            <text x="17" y="49" font-family="'Arial','Helvetica',sans-serif" font-size="9" font-weight="600" fill="#cf12a0" letter-spacing="4.5">INFORMATION DESIGN</text>
+                            <defs><linearGradient id="ftAccAC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cf12a0"/><stop offset="100%" stop-color="#151454"/></linearGradient></defs>
+                        </svg>
+                    </a>
+                    <div class="title h6 fw-semibold">Restez connecté <br> avec Activium-ID</div>
+                    <div class="text">Ne manquez pas nos actualités IT !</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="https://www.linkedin.com/" target="_blank" class="text-body-1 fw-semibold">LinkedIn <div class="social-item"><i class="icon icon-linkedin-in"></i></div></a>
+                        <a href="mailto:communication@activium-id.com" class="text-body-1 fw-semibold">E-mail <div class="social-item"><i class="icon icon-envelope-solid"></i></div></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li><a href="index-activium.html" class="fw-semibold link-underline link1">Accueil</a></li>
+                        <li><a href="service-cyber.html" class="fw-semibold link-underline link1">Cybersécurité</a></li>
+                        <li><a href="audit-infra.html" class="fw-semibold link-underline link1">Audit Infra</a></li>
+                        <li><a href="devis.html" class="fw-semibold link-underline link1">Devis</a></li>
+                        <li><a href="index-activium.html#contact" class="fw-semibold link-underline link1">Contact</a></li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2025 Activium Information Design. Tous droits réservés. — SIRET 339 013 591 00088</p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1"><span class="fw-semibold">Haut de page</span><i class="icon icon-long-arrow-alt-up-solid fs-20"></i></a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content"><div class="container h-100"><div class="offcanvas-content_wrapin">
+            <div class="canvas_head">
+                <a href="index-activium.html" class="logo-site" style="text-decoration:none;">
+                    <svg width="175" height="46" viewBox="0 0 175 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="6" width="3" height="34" rx="2" fill="url(#mbAccAC)"/>
+                        <text x="12" y="27" font-family="'Arial Black','Arial',sans-serif" font-size="19" font-weight="900" fill="#ffffff" letter-spacing="2">ACTIVIUM</text>
+                        <text x="13" y="40" font-family="'Arial','Helvetica',sans-serif" font-size="7.5" font-weight="600" fill="#cf12a0" letter-spacing="3.5">INFORMATION DESIGN</text>
+                        <defs><linearGradient id="mbAccAC" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cf12a0"/><stop offset="100%" stop-color="#151454"/></linearGradient></defs>
+                    </svg>
+                </a>
+                <div class="btn-mobile-menu close-mb-menu text-caption link"><i class="icon icon-close"></i> FERMER</div>
+            </div>
+            <div class="canvas_center">
+                <ul class="nav-ul-mb" id="mobile-menu">
+                    <li><div class="item"><a href="index-activium.html" class="mb-menu-link text-display-1"><span class="text">Accueil</span></a></div></li>
+                    <li><div class="item"><a href="service-cyber.html" class="mb-menu-link text-display-1"><span class="text">Cybersécurité</span></a></div></li>
+                    <li><div class="item"><a href="service-cloud.html" class="mb-menu-link text-display-1"><span class="text">Cloud & Infra</span></a></div></li>
+                    <li><div class="item"><a href="audit-cyber.html" class="mb-menu-link text-display-1"><span class="text">Audit Cyber</span></a></div></li>
+                    <li><div class="item"><a href="audit-infra.html" class="mb-menu-link text-display-1"><span class="text">Audit Infra</span></a></div></li>
+                    <li><div class="item"><a href="devis.html" class="mb-menu-link text-display-1"><span class="text">Demande de Devis</span></a></div></li>
+                </ul>
+            </div>
+            <div class="canvas_foot"><div class="left"><a href="mailto:communication@activium-id.com" class="text-caption text-neutral-200">communication@activium-id.com</a><p class="text-caption text-neutral-200">01 44 64 44 64</p></div></div>
+        </div></div></div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

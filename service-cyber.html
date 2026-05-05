@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Security as a Service – Cybersécurité externalisée PME &amp; ETI | Activium</title>
+    <meta name="author" content="activium-id.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Protégez votre SI avec l'aide d'experts en cybersécurité — une solution clé en main, accessible et évolutive pour les PME et ETI. SOC managé, pentest, conformité NIS2/DORA.">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <style>
+        /* ══════════════════════════════════════════════════════════
+           ACTIVIUM — BRAND OVERRIDE COMPLET
+           Magenta #cf12a0  |  Navy #151454  |  Black #000000
+        ══════════════════════════════════════════════════════════ */
+
+        /* 1 ── Variable CSS --brand (utilisée partout dans le thème) */
+        :root { --brand: #cf12a0 !important; }
+
+        /* ══════════════════════════════════════════
+           2 ── HEADER & MENU REDESIGN
+        ══════════════════════════════════════════ */
+        /* Header : conteneur pleine largeur */
+        .tf-header { padding-top: 24px !important; }
+        .tf-header.header2 .header-inner,
+        .tf-header .header-inner {
+            max-width: 1380px !important;
+            width: calc(100% - 40px) !important;
+            padding: 10px 20px 10px 20px !important;
+            /* Pill dark glassmorphism */
+            background: rgba(8, 7, 28, 0.88) !important;
+            backdrop-filter: blur(28px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+            border: 1px solid rgba(207,18,160,0.22) !important;
+            border-radius: 100px !important;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset !important;
+        }
+
+        /* Logo zone */
+        .logo-site { flex-shrink: 0 !important; }
+        .logo-site svg { display: block !important; }
+
+        /* Nav : items sur une ligne, style pill au hover */
+        .nav-menu-main { gap: 2px !important; }
+        .item-link {
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.04em !important;
+            white-space: nowrap !important;
+            padding: 7px 14px !important;
+            border-radius: 100px !important;
+            color: rgba(255,255,255,0.78) !important;
+            transition: all 0.2s ease !important;
+        }
+        .item-link:hover,
+        .item-link.active {
+            background: rgba(207,18,160,0.15) !important;
+            color: #f580e0 !important;
+            -webkit-text-fill-color: #f580e0 !important;
+        }
+        /* Supprimer le soulignement original */
+        .item-link::before { display: none !important; }
+
+        /* Sous-menus dark */
+        .sub-menu {
+            background: #0a0920 !important;
+            border: 1px solid rgba(207,18,160,0.2) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important;
+        }
+        .sub-menu .item-link { border-radius: 8px !important; color: rgba(255,255,255,0.7) !important; }
+        .sub-menu .item-link:hover { background: rgba(207,18,160,0.12) !important; color: #f580e0 !important; -webkit-text-fill-color: #f580e0 !important; }
+
+        /* CTA bouton dans le header */
+        .tf-header a.tf-btn {
+            font-size: 12px !important;
+            padding: 9px 20px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            border-radius: 100px !important;
+        }
+
+        /* ══════════════════════════════════════════
+           3 ── CONTRASTES : sections claires vs sombres
+        ══════════════════════════════════════════ */
+
+        /* Sur fond SOMBRE : gradient magenta → rose → blanc (lisible) */
+        .text-gradient-1,
+        .text-gradient-2,
+        .text-gradient-3 {
+            background-image: linear-gradient(130deg, #cf12a0 0%, #e855c8 45%, #ffffff 100%) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        /* Sur fond CLAIR (.box-white) : gradient navy → magenta, PAS vers blanc */
+        .box-white .text-gradient-1,
+        .box-white .text-gradient-2,
+        .box-white .text-gradient-3,
+        .section-pricing .text-gradient-1,
+        .section-pricing .text-gradient-2,
+        .section-pricing .text-gradient-3,
+        .section-faqs .text-gradient-3,
+        .section-contact .text-gradient-3 {
+            background-image: linear-gradient(130deg, #151454 0%, #cf12a0 100%) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        /* heading-sub : magenta lisible partout */
+        .heading-sub, .heading-sub.style-1 { color: #cf12a0 !important; }
+
+        /* Sur fond clair, le heading-sub doit être foncé-magenta */
+        .box-white .heading-sub { color: #9b0d78 !important; }
+
+        /* ══════════════════════════════════════════
+           4 ── Accordion services actif : texte lisible
+        ══════════════════════════════════════════ */
+        .accordion-faq_item .accordion-action.active-img {
+            /* fond dégradé sombre → lisibilité garantie */
+        }
+        .accordion-faq_item .accordion-action.active-img .accordion-title {
+            color: #ffffff !important;
+        }
+        /* Description dans la card ouverte */
+        .accordion-content .text-neutral-300 { color: rgba(255,255,255,0.72) !important; }
+
+        /* ══════════════════════════════════════════
+           5 ── Couleurs accent globales
+        ══════════════════════════════════════════ */
+        .text-brand { color: #cf12a0 !important; -webkit-text-fill-color: #cf12a0 !important; }
+        .process-card i,
+        .featured-works-item .view-project,
+        .footer-bottom a.action-go-top,
+        .contact-item i,
+        .time.fw-semibold,
+        .statistic-number .prefix { color: #cf12a0 !important; }
+
+        /* ══════════════════════════════════════════
+           6 ── Boutons
+        ══════════════════════════════════════════ */
+        .tf-btn, a.tf-btn, button.tf-btn {
+            background: linear-gradient(135deg, #cf12a0 0%, #9b0d78 100%) !important;
+            border-color: #cf12a0 !important;
+            color: #fff !important;
+        }
+        .tf-btn:hover, a.tf-btn:hover, button.tf-btn:hover {
+            background: linear-gradient(135deg, #1e1b7e 0%, #151454 100%) !important;
+            border-color: #151454 !important;
+        }
+        .tf-btn-2 { color: #cf12a0 !important; border-color: rgba(207,18,160,0.45) !important; }
+        .tf-btn-2:hover { background: rgba(207,18,160,0.12) !important; border-color: #cf12a0 !important; }
+
+        /* 7 ── Sous-titre hero (pill) */
+        .section-hero .sub.fw-semibold {
+            border: 1px solid rgba(207,18,160,0.35) !important;
+            background: rgba(207,18,160,0.08) !important;
+            color: #f580e0 !important;
+        }
+        .section-hero .sub.fw-semibold svg path { fill: #cf12a0 !important; }
+
+        /* 8 ── Fond hero */
+        .section-hero { background: #000 !important; }
+        .section-hero .hero-image {
+            background:
+                radial-gradient(ellipse 100% 70% at 50% -10%, rgba(207,18,160,0.28) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 50% at 15% 50%, rgba(21,20,84,0.55) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 85% 50%, rgba(21,20,84,0.45) 0%, transparent 70%),
+                #000 !important;
+        }
+
+        /* 9 ── Section-partner (certifs band) */
+        .section-partner {
+            background: linear-gradient(135deg, #151454 0%, #0d0d38 100%) !important;
+        }
+
+        /* 10 ── Boîte noire (team, stats, certifs, engagements) */
+        .box-black { background: #050510 !important; }
+
+        /* 11 ── Section tools */
+        .section-tools {
+            background:
+                radial-gradient(ellipse 80% 80% at 50% 50%,
+                rgba(21,20,84,0.65) 0%, rgba(0,0,0,0.97) 100%) !important;
+        }
+
+        /* 12 ── Barres de progression */
+        .progress-fill,
+        .benefits-progress-item .progress-line,
+        .benefits-progress-item .progress-line::after {
+            background: linear-gradient(90deg, #cf12a0 0%, #e855c8 100%) !important;
+        }
+        /* Texte des barres : lisible sur fond clair */
+        .progress-text.fw-semibold { color: #151454 !important; }
+        .progress-text.fw-semibold i { color: #cf12a0 !important; }
+
+        /* 13 ── Étapes (step items) */
+        .step-item {
+            background: rgba(207,18,160,0.12) !important;
+            border: 1.5px solid rgba(207,18,160,0.35) !important;
+        }
+        .step-item i { color: #cf12a0 !important; }
+
+        /* 14 ── Features center */
+        .features-center {
+            background: linear-gradient(135deg, #cf12a0 0%, #9b0d78 100%) !important;
+            box-shadow: 0 0 64px rgba(207,18,160,0.45) !important;
+        }
+        .simu-electric { background: #cf12a0 !important; }
+
+        /* 15 ── Tags */
+        .tags-item {
+            border: 1px solid rgba(207,18,160,0.4) !important;
+            color: #cf12a0 !important;
+            background: rgba(207,18,160,0.06) !important;
+        }
+        .tags-item:hover {
+            background: #cf12a0 !important;
+            color: #fff !important;
+            border-color: #cf12a0 !important;
+        }
+
+        /* 16 ── Accordion actif : fond sombre + glow magenta, texte blanc ── */
+        .accordion-faq_item .accordion-action.active-img::before,
+        .accordion-faq_item .accordion-action:not(.collapsed)::before {
+            background:
+                radial-gradient(ellipse 70% 50% at 15% 0%, rgba(207,18,160,0.28) 0%, transparent 55%),
+                #0e0c28 !important;
+        }
+        .accordion-faq_item .accordion-action.active-img .accordion-title,
+        .accordion-faq_item .accordion-action:not(.collapsed) .accordion-title {
+            color: #ffffff !important;
+        }
+        .collapse.show .tags-item {
+            border-color: rgba(255,255,255,0.30) !important;
+            color: #fff !important;
+            background: rgba(255,255,255,0.08) !important;
+        }
+        .collapse.show .accordion-content .text,
+        .collapse.show .accordion-content p {
+            color: rgba(255,255,255,0.82) !important;
+        }
+
+        /* 17 ── Awards / certifications */
+        .awards-item { border-color: rgba(207,18,160,0.15) !important; }
+        .awards-item:hover {
+            background: linear-gradient(135deg, rgba(207,18,160,0.08), transparent) !important;
+            border-color: rgba(207,18,160,0.4) !important;
+        }
+
+        /* 18 ── Pricing dark card */
+        .pricing-item.style-black {
+            background: radial-gradient(ellipse at 50% 0%,
+                rgba(207,18,160,0.22) 0%, #151454 55%, #07071a 100%) !important;
+            border-color: rgba(207,18,160,0.3) !important;
+        }
+        /* check items */
+        .list-text.type-check li i { color: #cf12a0 !important; }
+
+        /* 19 ── Toggle switch */
+        .tf-switch-check:checked {
+            background: linear-gradient(135deg, #cf12a0, #9b0d78) !important;
+            box-shadow: 0 0 16px rgba(207,18,160,0.4) !important;
+        }
+
+        /* 20 ── Scroll progress / goTop */
+        #goTop { border-color: rgba(207,18,160,0.4) !important; }
+        #goTop:hover { color: #cf12a0 !important; }
+
+        /* 21 ── Section About col-left */
+        .section-about-us .col-left {
+            background: linear-gradient(135deg, #151454 0%, #0a0932 100%) !important;
+        }
+        .section-about-us .col-left .text-brand {
+            color: #cf12a0 !important;
+            -webkit-text-fill-color: #cf12a0 !important;
+        }
+        .section-about-us .col-left h5 { color: #fff !important; }
+
+        /* 22 ── Review-box counter */
+        .review-box .counter { color: #cf12a0 !important; }
+
+        /* 23 ── Contact section */
+        .section-contact {
+            background: linear-gradient(135deg, #08081e 0%, #151454 50%, #000 100%) !important;
+        }
+
+        /* 24 ── Social hover */
+        .tf-social .social-item:hover { border-color: #cf12a0 !important; }
+        .tf-social-1 a:hover          { color: #cf12a0 !important; }
+
+        /* 25 ── Mobile offcanvas */
+        .offcanvas-menu { background: #050510 !important; }
+        .mb-menu-link:hover .text,
+        .mb-menu-link:focus .text { color: #cf12a0 !important; }
+
+        /* 26 ── Footer watermark */
+        .footer-image img { opacity: 0.035 !important; }
+
+        /* 27 ── Testimoniaux étoiles */
+        .top-icon .icon-star-solid { color: #cf12a0 !important; }
+
+        /* 28 ── Process card bot (numéros) */
+        .process-card .number .text-neutral-200 { color: rgba(255,255,255,0.5) !important; }
+
+        /* 29 ── Responsive : menu reste masqué sous 991px (comportement original) */
+        @media (max-width: 1200px) {
+            .item-link { font-size: 11.5px !important; padding: 6px 7px !important; }
+            .nav-menu-main { gap: 0 !important; }
+        }
+        @media (max-width: 991px) {
+            .tf-header .box-navigation { display: none !important; }
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           PAGE-SPECIFIC STYLES — SERVICE CYBER
+        ══════════════════════════════════════════════════════════ */
+
+        /* Page hero */
+        .page-hero { background:#000; padding:140px 0 80px; position:relative; overflow:hidden; }
+        .page-hero::before { content:''; position:absolute; inset:0; background: radial-gradient(ellipse 100% 80% at 50% -10%, rgba(207,18,160,0.26) 0%, transparent 60%), radial-gradient(ellipse 60% 60% at 10% 60%, rgba(21,20,84,0.5) 0%, transparent 65%); }
+        .page-hero .container { position:relative; z-index:2; }
+        .breadcrumb-nav { display:flex; align-items:center; gap:8px; margin-bottom:20px; font-size:12px; color:rgba(255,255,255,0.45); }
+        .breadcrumb-nav a { color:rgba(255,255,255,0.45); text-decoration:none; }
+        .breadcrumb-nav a:hover { color:#cf12a0; }
+        .hero-badge { display:inline-flex; align-items:center; gap:8px; padding:6px 16px 6px 10px; border:1px solid rgba(207,18,160,0.35); background:rgba(207,18,160,0.08); border-radius:100px; font-size:12px; font-weight:700; letter-spacing:0.06em; color:#f580e0; text-transform:uppercase; margin-bottom:24px; }
+        .stat-bar { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(207,18,160,0.15); border-radius:16px; overflow:hidden; margin-top:48px; }
+        @media(max-width:767px){.stat-bar{grid-template-columns:repeat(2,1fr);}}
+        .stat-bar-item { background:rgba(255,255,255,0.03); padding:24px 20px; text-align:center; }
+        .stat-bar-item .sn { font-size:2.2rem; font-weight:900; color:#cf12a0; line-height:1; }
+        .stat-bar-item .sl { font-size:0.82rem; color:rgba(255,255,255,0.6); margin-top:6px; }
+        /* Pillars */
+        .pillar-grid { display:grid; grid-template-columns:repeat(2,1fr); gap:20px; margin-top:48px; }
+        @media(max-width:767px){.pillar-grid{grid-template-columns:1fr;}}
+        .pillar-card { background:rgba(255,255,255,0.04); border:1px solid rgba(207,18,160,0.2); border-radius:20px; padding:28px 24px; transition:all 0.3s; }
+        .pillar-card:hover { border-color:rgba(207,18,160,0.5); background:rgba(207,18,160,0.06); }
+        .pillar-card .pc-icon { width:48px; height:48px; background:linear-gradient(135deg,rgba(207,18,160,0.25),rgba(21,20,84,0.4)); border-radius:14px; display:flex; align-items:center; justify-content:center; margin-bottom:16px; font-size:22px; color:#cf12a0; }
+        .pillar-card h5 { font-size:1rem; font-weight:800; color:#fff; margin-bottom:8px; }
+        .pillar-card p { font-size:0.875rem; color:rgba(255,255,255,0.65); line-height:1.6; margin:0; }
+        /* Feature cards */
+        .feat-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:20px; }
+        @media(max-width:991px){.feat-grid{grid-template-columns:repeat(2,1fr);}}
+        @media(max-width:575px){.feat-grid{grid-template-columns:1fr;}}
+        .feat-card { background:rgba(255,255,255,0.035); border:1px solid rgba(207,18,160,0.18); border-radius:18px; padding:24px 20px; transition:all 0.3s; }
+        .feat-card:hover { border-color:rgba(207,18,160,0.45); background:rgba(207,18,160,0.07); transform:translateY(-3px); }
+        .feat-card .fc-icon { font-size:26px; color:#cf12a0; margin-bottom:14px; }
+        .feat-card h6 { font-size:0.95rem; font-weight:800; color:#fff; margin-bottom:8px; }
+        .feat-card p { font-size:0.82rem; color:rgba(255,255,255,0.6); line-height:1.55; margin:0; }
+        /* Why list */
+        .why-list { list-style:none; padding:0; margin:0; }
+        .why-list li { display:flex; align-items:flex-start; gap:14px; padding:16px 0; border-bottom:1px solid rgba(255,255,255,0.07); }
+        .why-list li:last-child { border-bottom:none; }
+        .why-check { width:28px; height:28px; flex-shrink:0; background:rgba(207,18,160,0.15); border-radius:50%; display:flex; align-items:center; justify-content:center; }
+        .why-check i { color:#cf12a0; font-size:12px; }
+        .why-text { font-size:0.9rem; color:rgba(255,255,255,0.78); line-height:1.5; }
+        .why-text strong { color:#fff; display:block; margin-bottom:2px; }
+        /* CTA banner */
+        .cta-banner { background:linear-gradient(135deg,#cf12a0 0%,#9b0d78 50%,#151454 100%); border-radius:24px; padding:56px 48px; text-align:center; position:relative; overflow:hidden; }
+        .cta-banner::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% -20%,rgba(255,255,255,0.12) 0%,transparent 60%); }
+        .cta-banner h2 { color:#fff; font-size:2rem; font-weight:900; position:relative; }
+        .cta-banner p { color:rgba(255,255,255,0.82); font-size:1.05rem; margin:12px 0 32px; position:relative; }
+        .cta-btns { display:flex; gap:16px; justify-content:center; flex-wrap:wrap; position:relative; }
+    </style>
+</head>
+
+<body class="counter-scroll">
+    <canvas class="cursor-trail" id="trail" style="display: none;"></canvas>
+
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-long-arrow-alt-up-solid"></span>
+        </span>
+    </button>
+
+    <main id="wrapper">
+
+        <!-- ══ HEADER ════════════════════════════════════════════ -->
+        <header class="tf-header header2">
+            <div class="header-inner">
+                <a href="index-activiumd.html" class="logo-site" style="text-decoration:none;">
+                    <svg width="175" height="46" viewBox="0 0 175 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Activium Information Design">
+                        <path d="M4 36 Q22 29 44 36 Q66 43 88 36 Q110 29 132 36 Q152 42 175 38" stroke="#cf12a0" stroke-width="1.1" fill="none" opacity="0.4" stroke-linecap="round"/>
+                        <rect x="0" y="6" width="3" height="34" rx="2" fill="url(#headerAccent)"/>
+                        <text x="12" y="27" font-family="'Arial Black','Arial',sans-serif" font-size="19" font-weight="900" fill="#ffffff" letter-spacing="2">ACTIVIUM</text>
+                        <text x="13" y="40" font-family="'Arial','Helvetica',sans-serif" font-size="7.5" font-weight="600" fill="#cf12a0" letter-spacing="3.5">INFORMATION DESIGN</text>
+                        <defs>
+                            <linearGradient id="headerAccent" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0%" stop-color="#cf12a0"/>
+                                <stop offset="100%" stop-color="#151454"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item">
+                            <a href="index-activiumd.html" class="item-link link1">Accueil</a>
+                        </li>
+                        <li class="menu-item has-sub">
+                            <a href="#solutions" class="item-link link1 active">Services <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="service-cyber.html" class="item-link">Cybersécurité</a></li>
+                                <li><a href="service-cloud.html" class="item-link">Cloud &amp; Infra</a></li>
+                                <li><a href="service-workplace.html" class="item-link">Modern Workplace</a></li>
+                                <li><a href="service-reseaux.html" class="item-link">Réseaux</a></li>
+                                <li><a href="service-ia.html" class="item-link">IA &amp; Automatisation</a></li>
+                                <li><a href="service-conseil.html" class="item-link">Conseil</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-sub">
+                            <a href="audit-cyber.html" class="item-link link1">Audits <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="audit-cyber.html" class="item-link">Audit Cyber</a></li>
+                                <li><a href="audit-infra.html" class="item-link">Audit Infra</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="index-activiumd.html#about" class="item-link link1">À propos</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#contact" class="item-link link1">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+                <a href="devis.html" class="tf-btn d-lg-flex d-none">
+                    Demande de Devis
+                </a>
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex">
+                    <i class="icon icon-grip-lines-solid"></i>
+                </a>
+            </div>
+        </header>
+        <!-- /Header -->
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <div class="page-hero">
+            <div class="container">
+                <nav class="breadcrumb-nav">
+                    <a href="index-activiumd.html">Accueil</a>
+                    <i class="icon icon-angle-right-solid" style="font-size:10px;"></i>
+                    <span>Security as a Service</span>
+                </nav>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-7">
+                        <div class="hero-badge"><i class="icon icon-shield-alt-solid"></i> Cybersécurité externalisée</div>
+                        <h1 class="text-display-2 fw-semibold mb-20">
+                            <span class="text-gradient-1">Security</span><br>
+                            <span style="color:#fff;">as a Service</span>
+                        </h1>
+                        <p style="color:rgba(255,255,255,0.72);max-width:540px;line-height:1.7;margin-bottom:32px;font-size:1.05rem;">
+                            Protégez votre SI avec l'aide d'experts en cybersécurité — une solution clé en main, accessible et évolutive pour les PME et ETI. Intervention garantie en <strong style="color:#fff;">moins d'une heure.</strong>
+                        </p>
+                        <div class="d-flex gap-16 flex-wrap">
+                            <a href="index-activiumd.html#contact" class="tf-btn">Être rappelé par un expert</a>
+                            <a href="#solutions" class="tf-btn-2">Découvrir l'offre</a>
+                        </div>
+                        <div class="stat-bar">
+                            <div class="stat-bar-item"><div class="sn">&lt;1h</div><div class="sl">Délai d'intervention</div></div>
+                            <div class="stat-bar-item"><div class="sn">24/7</div><div class="sl">Surveillance continue</div></div>
+                            <div class="stat-bar-item"><div class="sn">100%</div><div class="sl">Incidents investigués</div></div>
+                            <div class="stat-bar-item"><div class="sn">+30</div><div class="sl">Ans d'expertise</div></div>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 d-none d-lg-flex justify-content-center">
+                        <div style="width:320px;height:320px;border-radius:50%;background:radial-gradient(ellipse at 40% 30%,rgba(207,18,160,0.3),rgba(21,20,84,0.5) 60%,transparent 80%);display:flex;align-items:center;justify-content:center;">
+                            <div style="width:200px;height:200px;border-radius:50%;border:1px solid rgba(207,18,160,0.3);display:flex;align-items:center;justify-content:center;">
+                                <div style="width:130px;height:130px;border-radius:50%;background:linear-gradient(135deg,rgba(207,18,160,0.2),rgba(21,20,84,0.4));border:1px solid rgba(207,18,160,0.5);display:flex;align-items:center;justify-content:center;">
+                                    <i class="icon icon-shield-alt-solid" style="font-size:56px;color:#cf12a0;"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Hero -->
+
+        <!-- ══ MISSION / 4 PILLIERS ══════════════════════════════ -->
+        <div style="background:#000;padding:72px 0;">
+            <div class="container">
+                <div class="heading-section center mb-0">
+                    <div class="heading-sub fw-semibold effectFade fadeUp">Notre Mission</div>
+                    <div class="heading-title text-gradient-1 effectFade fadeRotateX">Préserver l'intégrité,<br>la confidentialité et l'accessibilité</div>
+                    <p style="color:rgba(255,255,255,0.65);max-width:560px;margin:16px auto 0;font-size:1rem;line-height:1.7;">Une offre accessible, simple et évolutive pour la protection de votre système d'information.</p>
+                </div>
+                <div class="pillar-grid">
+                    <div class="pillar-card effectFade fadeUp">
+                        <div class="pc-icon"><i class="icon icon-lock-solid"></i></div>
+                        <h5>Sécurisation globale de votre SI</h5>
+                        <p>Nous sécurisons l'ensemble de votre système d'information — endpoints, serveurs, réseaux, applications — avec une approche Zero Trust et défense en profondeur.</p>
+                    </div>
+                    <div class="pillar-card effectFade fadeUp" data-delay="0.1">
+                        <div class="pc-icon"><i class="icon icon-chess-solid"></i></div>
+                        <h5>Stratégie complète de défense</h5>
+                        <p>Établissement d'une stratégie de cybersécurité sur-mesure : analyse des risques, politique de sécurité, plans de réponse aux incidents et conformité réglementaire.</p>
+                    </div>
+                    <div class="pillar-card effectFade fadeUp" data-delay="0.2">
+                        <div class="pc-icon"><i class="icon icon-eye-solid"></i></div>
+                        <h5>Surveillance temps réel</h5>
+                        <p>SOC managé avec surveillance 7j/7 – 24h/24 des comportements suspects. Détection et réponse aux menaces en temps réel grâce à des outils SIEM et EDR de pointe.</p>
+                    </div>
+                    <div class="pillar-card effectFade fadeUp" data-delay="0.3">
+                        <div class="pc-icon"><i class="icon icon-user-shield-solid"></i></div>
+                        <h5>Gestion des accès renforcée</h5>
+                        <p>IAM, MFA, PAM et politiques d'accès privilégiés pour garantir que seules les bonnes personnes accèdent aux bonnes ressources. Conformité DORA, NIS2, PGISS-S.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Mission -->
+
+        <!-- ══ NOS SOLUTIONS ══════════════════════════════════════ -->
+        <div class="box-white">
+            <div id="solutions" class="section-services flat-spacing">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-xxl-4 col-lg-6">
+                            <div class="d-flex flex-column justify-content-between h-100">
+                                <div class="col-left">
+                                    <div class="heading-section mb-48">
+                                        <div class="heading-sub fw-semibold effectFade fadeUp">Nos Solutions</div>
+                                        <div class="heading-title text-gradient-3 effectFade fadeRotateX">Un spectre<br>de protection complet</div>
+                                    </div>
+                                    <p class="effectFade fadeUp">Des experts formés aux meilleures pratiques de cybersécurité et aux derniers outils et méthodes pour chaque spécialité de votre SI.</p>
+                                    <div class="d-flex flex-wrap gap-8 mt-24 effectFade fadeUp">
+                                        <span class="tags-item fw-semibold">CISSP Certifiés</span>
+                                        <span class="tags-item fw-semibold">SOC France</span>
+                                        <span class="tags-item fw-semibold">NIS2 / DORA</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-lg-6">
+                            <div class="accordion-faq_list" id="accordion-cyber">
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn active-img" data-img="assets/images/section/service-3.jpg" data-bs-target="#cyber-1" role="button" data-bs-toggle="collapse" aria-controls="cyber-1" aria-expanded="true">
+                                        <div class="accordion-title">
+                                            SOC Managé &amp; Surveillance 24/7
+                                            <div class="text-body-1 num">(01)</div>
+                                        </div>
+                                    </div>
+                                    <div id="cyber-1" class="collapse show" data-bs-parent="#accordion-cyber">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">Notre Security Operations Center, basé en France, assure une surveillance continue. Détection d'intrusions, corrélation d'événements SIEM, alertes en temps réel et réponse immédiate aux incidents.</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">SIEM</a>
+                                                <a href="#" class="tags-item fw-semibold">EDR/XDR</a>
+                                                <a href="#" class="tags-item fw-semibold">SOC 24/7</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn collapsed" data-img="assets/images/section/service-3.jpg" data-bs-target="#cyber-2" role="button" data-bs-toggle="collapse" aria-controls="cyber-2" aria-expanded="false">
+                                        <div class="accordion-title">
+                                            Tests de Pénétration (Pentest)
+                                            <div class="text-body-1 num">(02)</div>
+                                        </div>
+                                    </div>
+                                    <div id="cyber-2" class="collapse" data-bs-parent="#accordion-cyber">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">Nos experts réalisent des tests d'intrusion internes et externes pour identifier vos vulnérabilités avant que des attaquants ne les exploitent. Rapports détaillés avec recommandations priorisées.</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">Pentest externe</a>
+                                                <a href="#" class="tags-item fw-semibold">Red team</a>
+                                                <a href="#" class="tags-item fw-semibold">Rapport CVSS</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn collapsed" data-img="assets/images/section/service-3.jpg" data-bs-target="#cyber-3" role="button" data-bs-toggle="collapse" aria-controls="cyber-3" aria-expanded="false">
+                                        <div class="accordion-title">
+                                            Conformité &amp; Gestion des Risques
+                                            <div class="text-body-1 num">(03)</div>
+                                        </div>
+                                    </div>
+                                    <div id="cyber-3" class="collapse" data-bs-parent="#accordion-cyber">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">Mise en conformité DORA, NIS2, RGPD, PGISS-S. Analyse des risques EBIOS RM, cartographie des actifs sensibles, politique de sécurité et suivi des plans d'action.</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">DORA</a>
+                                                <a href="#" class="tags-item fw-semibold">NIS2</a>
+                                                <a href="#" class="tags-item fw-semibold">RGPD</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn collapsed" data-img="assets/images/section/service-3.jpg" data-bs-target="#cyber-4" role="button" data-bs-toggle="collapse" aria-controls="cyber-4" aria-expanded="false">
+                                        <div class="accordion-title">
+                                            Sensibilisation &amp; Formation
+                                            <div class="text-body-1 num">(04)</div>
+                                        </div>
+                                    </div>
+                                    <div id="cyber-4" class="collapse" data-bs-parent="#accordion-cyber">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">La cybermenace passe souvent par l'humain. Nos programmes (phishing simulé, ateliers, e-learning) transforment vos collaborateurs en première ligne de défense efficace.</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">Phishing simulé</a>
+                                                <a href="#" class="tags-item fw-semibold">E-learning</a>
+                                                <a href="#" class="tags-item fw-semibold">Cyber hygiène</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="services-image effectFade fadeUp">
+                            <img src="assets/images/section/service-3.jpg" alt="Security as a Service">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Nos Solutions -->
+
+        <!-- ══ CAPACITÉS ══════════════════════════════════════════ -->
+        <div style="background:#000;padding:72px 0;">
+            <div class="container">
+                <div class="heading-section center mb-48">
+                    <div class="heading-sub fw-semibold effectFade fadeUp">Capacités</div>
+                    <div class="heading-title text-gradient-1 effectFade fadeRotateX">Ce que couvre notre offre</div>
+                </div>
+                <div class="feat-grid">
+                    <div class="feat-card effectFade fadeUp">
+                        <div class="fc-icon"><i class="icon icon-fire-solid"></i></div>
+                        <h6>Firewall Next-Gen</h6>
+                        <p>Déploiement et gestion de firewalls UTM/NGFW Fortinet, WatchGuard. Règles adaptées à votre métier.</p>
+                    </div>
+                    <div class="feat-card effectFade fadeUp" data-delay="0.1">
+                        <div class="fc-icon"><i class="icon icon-envelope-open-solid"></i></div>
+                        <h6>Protection messagerie</h6>
+                        <p>Anti-spam, anti-phishing, sandboxing. Protection Microsoft 365 avec Defender for Office 365.</p>
+                    </div>
+                    <div class="feat-card effectFade fadeUp" data-delay="0.2">
+                        <div class="fc-icon"><i class="icon icon-hdd-solid"></i></div>
+                        <h6>Sauvegarde &amp; PRA Cyber</h6>
+                        <p>Stratégie de sauvegarde isolée (air-gap), plan de reprise post-ransomware testé. RTO garanti.</p>
+                    </div>
+                    <div class="feat-card effectFade fadeUp" data-delay="0.3">
+                        <div class="fc-icon"><i class="icon icon-id-badge-solid"></i></div>
+                        <h6>Gestion des identités (IAM)</h6>
+                        <p>MFA, SSO, gestion des comptes privilégiés. Azure AD / Entra ID et annuaires on-premise.</p>
+                    </div>
+                    <div class="feat-card effectFade fadeUp" data-delay="0.4">
+                        <div class="fc-icon"><i class="icon icon-search-solid"></i></div>
+                        <h6>Audit &amp; Vulnérabilités</h6>
+                        <p>Scans automatisés et audits manuels, CVE prioritaires, patch management et suivi du risque résiduel.</p>
+                    </div>
+                    <div class="feat-card effectFade fadeUp" data-delay="0.5">
+                        <div class="fc-icon"><i class="icon icon-brain-solid"></i></div>
+                        <h6>Threat Intelligence</h6>
+                        <p>Flux CTI sur les menaces émergentes ciblant votre secteur d'activité et votre taille d'entreprise.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Capacités -->
+
+        <!-- ══ POURQUOI ACTIVIUM ══════════════════════════════════ -->
+        <div style="background:linear-gradient(135deg,#07071c,#151454 60%,#08081e);padding:80px 0;">
+            <div class="container">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-5">
+                        <div class="heading-section mb-40">
+                            <div class="heading-sub fw-semibold effectFade fadeUp">Pourquoi Activium-ID</div>
+                            <div class="heading-title text-gradient-1 effectFade fadeRotateX">Flexibilité,<br>réactivité,<br>expertise</div>
+                        </div>
+                        <div class="d-flex flex-wrap gap-16 effectFade fadeUp">
+                            <a href="#contact" class="tf-btn">Parler à un expert</a>
+                            <a href="tel:0144644464" class="tf-btn-2">01 44 64 44 64</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-7">
+                        <ul class="why-list effectFade fadeUp">
+                            <li>
+                                <div class="why-check"><i class="icon icon-check-solid"></i></div>
+                                <div class="why-text"><strong>Offre avec ou sans engagement</strong>Modèle Pay Per Use : vous payez en fonction de ce que vous utilisez. Pas d'investissement lourd, pas de risque.</div>
+                            </li>
+                            <li>
+                                <div class="why-check"><i class="icon icon-check-solid"></i></div>
+                                <div class="why-text"><strong>Garantie d'intervention sous une heure</strong>Surveillance 7j/7 – 24h/24 de votre SI avec escalade immédiate sur les incidents critiques.</div>
+                            </li>
+                            <li>
+                                <div class="why-check"><i class="icon icon-check-solid"></i></div>
+                                <div class="why-text"><strong>Des experts pour chaque spécialité</strong>IAM, SOC, firewalls, CTI, conformité — chaque domaine couvert par des spécialistes certifiés (CISSP, CISM, CEH).</div>
+                            </li>
+                            <li>
+                                <div class="why-check"><i class="icon icon-check-solid"></i></div>
+                                <div class="why-text"><strong>Investigation de 100% des incidents</strong>Chaque alerte analysée par un humain. Pas de faux-positifs ignorés, pas de trou dans la raquette.</div>
+                            </li>
+                            <li>
+                                <div class="why-check"><i class="icon icon-check-solid"></i></div>
+                                <div class="why-text"><strong>Conformité réglementaire incluse</strong>DORA, NIS2, PGISS-S, RGPD — notre offre intègre les exigences légales pour votre secteur.</div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Pourquoi Activium -->
+
+        <!-- ══ NOTRE APPROCHE ═════════════════════════════════════ -->
+        <div class="box-white">
+            <div class="section-process flat-spacing">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="process-heading h-100">
+                                <div class="heading-section mb-80">
+                                    <div class="heading-sub fw-semibold effectFade fadeUp">Notre Approche</div>
+                                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">De l'audit<br>à la protection<br>opérationnelle</div>
+                                </div>
+                                <div class="group-btn-slider">
+                                    <div class="nav-prev-swiper"><i class="icon icon-angle-left-solid"></i></div>
+                                    <div class="nav-next-swiper"><i class="icon icon-angle-right-solid"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="process-slide">
+                                <div dir="ltr" class="swiper tf-swiper swiper-box-shadow" data-preview="1.78" data-tablet="2" data-mobile-sm="1" data-mobile="1" data-loop="false" data-center="false" data-space-lg="24" data-space-md="24" data-space="30">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-search-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">Audit de sécurité</h4>
+                                                    <p class="text text-secondary">Analyse de votre exposition externe, revue des configurations critiques, identification des vulnérabilités.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">3–5 JOURS</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">01</span>
+                                                        <span class="text-neutral-200">/04</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-chess-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">Plan de sécurité</h4>
+                                                    <p class="text text-secondary">Définition d'une stratégie de défense sur-mesure, choix des outils, roadmap priorisée selon vos risques.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">1–2 SEMAINES</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">02</span>
+                                                        <span class="text-neutral-200">/04</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-bolt-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">Déploiement</h4>
+                                                    <p class="text text-secondary">Mise en place des solutions retenues sans interruption de service. Intégration SOC, activation outils, tests de validation.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">2–4 SEMAINES</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">03</span>
+                                                        <span class="text-neutral-200">/04</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-eye-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">Surveillance continue</h4>
+                                                    <p class="text text-secondary">SOC 24/7, rapports mensuels, revues de sécurité trimestrielles, ajustement continu de la posture.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">EN CONTINU</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">04</span>
+                                                        <span class="text-neutral-200">/04</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Notre Approche -->
+
+        <!-- ══ CTA BANNER ═════════════════════════════════════════ -->
+        <div style="background:#000;padding:72px 0;">
+            <div class="container">
+                <div class="cta-banner">
+                    <h2>Protégez votre entreprise dès aujourd'hui</h2>
+                    <p>Nos experts réalisent un diagnostic gratuit de votre exposition aux risques cyber — résultat sous 5 jours ouvrés, sans engagement.</p>
+                    <div class="cta-btns">
+                        <a href="index-activiumd.html#contact" class="tf-btn" style="background:#fff!important;color:#cf12a0!important;border-color:#fff!important;font-weight:800;">Demander un audit gratuit</a>
+                        <a href="tel:0144644464" class="tf-btn-2" style="border-color:rgba(255,255,255,0.4)!important;color:#fff!important;"><i class="icon icon-phone-solid" style="margin-right:8px;"></i>01 44 64 44 64</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /CTA Banner -->
+
+        <!-- ══ PARTENAIRES / CERTIFICATIONS LOGOS ════════════════ -->
+        <div class="section-partner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="partner-wrap">
+                            <p class="text-secondary text fw-semibold">Ils nous font confiance</p>
+                            <div class="infiniteSlide_tech_main d-grid">
+                                <div class="infiniteSlide infiniteSlide_partner" data-clone="5">
+                                    <img src="assets/images/partner/partner-1.svg" alt="WatchGuard">
+                                    <img src="assets/images/partner/partner-2.svg" alt="Huawei">
+                                    <img src="assets/images/partner/partner-3.svg" alt="Fortinet">
+                                    <img src="assets/images/partner/partner-4.svg" alt="Dell Technologies">
+                                    <img src="assets/images/partner/partner-5.svg" alt="Microsoft">
+                                    <img src="assets/images/partner/partner-6.svg" alt="Veeam">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Partenaires -->
+
+        <!-- ══ CONTACT ════════════════════════════════════════════ -->
+        <div id="contact" class="flat-spacing pt-0">
+            <div class="section-contact">
+                <div class="contact-image">
+                    <img src="assets/images/section/contact-image-bg.jpg" alt="">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="col-left">
+                                <div class="heading-section mb-48">
+                                    <div class="heading-sub fw-semibold effectFade fadeUp">Vous avez une question ?</div>
+                                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">Besoin d'un avis professionnel ?</div>
+                                </div>
+                                <div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX">
+                                        <i class="icon icon-envelope-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Adresse e-mail</div>
+                                            <div class="text">communication@activium-id.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX" data-delay="0.1">
+                                        <i class="icon icon-headset-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Paris</div>
+                                            <div class="text">01 44 64 44 64</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX" data-delay="0.15">
+                                        <i class="icon icon-headset-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Lyon</div>
+                                            <div class="text">04 72 85 79 90</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item effectFade fadeRotateX" data-delay="0.2">
+                                        <i class="icon icon-map-marker-alt-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Adresse</div>
+                                            <div class="text">120/130 avenue du 8 mai 1945<br>Nanterre 92000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="form-contact effectFade fadeUp">
+                                <h4 class="heading fw-semibold">Remplissez ce formulaire</h4>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">Nom</label>
+                                    <input type="text" placeholder="Votre nom complet" required>
+                                </fieldset>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">Email pro</label>
+                                    <input type="email" placeholder="votre@entreprise.com" required>
+                                </fieldset>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">Téléphone</label>
+                                    <input type="tel" placeholder="01 XX XX XX XX">
+                                </fieldset>
+                                <fieldset class="mb-18">
+                                    <label class="fw-semibold text-body-3 mb-0">Décrivez votre besoin</label>
+                                    <textarea name="text" placeholder="Décrivez votre besoin en cybersécurité…"></textarea>
+                                </fieldset>
+                                <button type="submit" class="tf-btn w-100">Envoyer ma demande</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Contact -->
+
+        <!-- ══ FOOTER ════════════════════════════════════════════ -->
+        <footer>
+            <div class="footer-image">
+                <img class="effectFade fadeUp" src="assets/images/logo/logo-footer.png" alt="">
+            </div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index-activiumd.html" class="footer-logo" style="text-decoration:none;"></a>
+                    <div class="title h6 fw-semibold">Restez connecté <br> avec Activium-ID</div>
+                    <div class="text">Ne manquez pas nos actualités IT !</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="https://www.linkedin.com/" target="_blank" class="text-body-1 fw-semibold">
+                            LinkedIn
+                            <div class="social-item"><i class="icon icon-linkedin-in"></i></div>
+                        </a>
+                        <a href="https://x.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Twitter / X
+                            <div class="social-item"><i class="icon icon-twitter-x"></i></div>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Facebook
+                            <div class="social-item"><i class="icon icon-facebook-f"></i></div>
+                        </a>
+                        <a href="mailto:communication@activium-id.com" class="text-body-1 fw-semibold">
+                            E-mail
+                            <div class="social-item"><i class="icon icon-envelope-solid"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li><a href="index-activiumd.html#about" class="fw-semibold link-underline link1">À propos</a></li>
+                        <li><a href="#solutions" class="fw-semibold link-underline link1">Services</a></li>
+                        <li><a href="#solutions" class="fw-semibold link-underline link1">Solutions</a></li>
+                        <li><a href="#contact" class="fw-semibold link-underline link1">Contact</a></li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2025 Activium Information Design. Tous droits réservés. — SIRET 339 013 591 00088</p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1">
+                        <span class="fw-semibold">Haut de page</span>
+                        <i class="icon icon-long-arrow-alt-up-solid fs-20"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!-- /Footer -->
+
+    </main>
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index-activiumd.html" class="logo-site" style="text-decoration:none;">
+                            <svg width="175" height="46" viewBox="0 0 175 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Activium Information Design">
+                                <path d="M4 36 Q22 29 44 36 Q66 43 88 36 Q110 29 132 36 Q152 42 175 38" stroke="#cf12a0" stroke-width="1.1" fill="none" opacity="0.4" stroke-linecap="round"/>
+                                <rect x="0" y="6" width="3" height="34" rx="2" fill="url(#mobileAccent)"/>
+                                <text x="12" y="27" font-family="'Arial Black','Arial',sans-serif" font-size="19" font-weight="900" fill="#ffffff" letter-spacing="2">ACTIVIUM</text>
+                                <text x="13" y="40" font-family="'Arial','Helvetica',sans-serif" font-size="7.5" font-weight="600" fill="#cf12a0" letter-spacing="3.5">INFORMATION DESIGN</text>
+                                <defs>
+                                    <linearGradient id="mobileAccent" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#cf12a0"/>
+                                        <stop offset="100%" stop-color="#151454"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            FERMER
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb" id="mobile-menu">
+                            <li>
+                                <div class="item">
+                                    <a href="index-activiumd.html" class="mb-menu-link text-display-1">
+                                        <span class="text">Accueil</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="index-activiumd.html#about" class="mb-menu-link text-display-1">
+                                        <span class="text">À propos</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-1" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dropdown-menu-1">
+                                            <span class="text">Services</span>
+                                        </a>
+                                        <div id="dropdown-menu-1" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="service-cyber.html" class="sub-nav-link text-white">Cybersécurité</a></li>
+                                                <li><a href="service-cloud.html" class="sub-nav-link text-white">Cloud &amp; Infrastructure</a></li>
+                                                <li><a href="service-ia.html" class="sub-nav-link text-white">IA &amp; Automatisation</a></li>
+                                                <li><a href="service-conseil.html" class="sub-nav-link text-white">Conseil &amp; Expertise</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="#solutions" class="mb-menu-link text-display-1">
+                                        <span class="text">Nos Solutions</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="#contact" class="mb-menu-link text-display-1">
+                                        <span class="text">Contact</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:communication@activium-id.com" class="text-caption text-neutral-200">communication@activium-id.com</a>
+                            <p class="text-caption text-neutral-200">01 44 64 44 64</p>
+                        </div>
+                        <div class="right">
+                            <a href="https://www.linkedin.com/" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>LINKEDIN
+                            </a>
+                            <a href="https://x.com/" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>TWITTER (X)
+                            </a>
+                            <a href="https://www.activium-id.com" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>SITE WEB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/countto.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>

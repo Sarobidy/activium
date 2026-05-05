@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Conseil & Transformation Numérique – Activium Information Design</title>
+    <meta name="author" content="activium-id.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Un partenaire stratégique pour votre transformation numérique. Schéma directeur SI, RSSI externalisé, gouvernance IT — Activium Information Design.">
+
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <style>
+        :root { --brand: #cf12a0 !important; }
+        .tf-header { padding-top: 24px !important; }
+        .tf-header.header2 .header-inner, .tf-header .header-inner { max-width: 1380px !important; width: calc(100% - 40px) !important; padding: 10px 20px !important; background: rgba(8, 7, 28, 0.88) !important; backdrop-filter: blur(28px) saturate(160%) !important; -webkit-backdrop-filter: blur(28px) saturate(160%) !important; border: 1px solid rgba(207,18,160,0.22) !important; border-radius: 100px !important; box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset !important; }
+        .logo-site { flex-shrink: 0 !important; } .logo-site svg { display: block !important; }
+        .nav-menu-main { gap: 2px !important; }
+        .item-link { font-size: 12px !important; font-weight: 600 !important; letter-spacing: 0.04em !important; white-space: nowrap !important; padding: 7px 14px !important; border-radius: 100px !important; color: rgba(255,255,255,0.78) !important; transition: all 0.2s ease !important; }
+        .item-link:hover, .item-link.active { background: rgba(207,18,160,0.15) !important; color: #f580e0 !important; -webkit-text-fill-color: #f580e0 !important; }
+        .item-link::before { display: none !important; }
+        .sub-menu { background: #0a0920 !important; border: 1px solid rgba(207,18,160,0.2) !important; border-radius: 16px !important; box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important; }
+        .sub-menu .item-link { border-radius: 8px !important; color: rgba(255,255,255,0.7) !important; }
+        .sub-menu .item-link:hover { background: rgba(207,18,160,0.12) !important; color: #f580e0 !important; -webkit-text-fill-color: #f580e0 !important; }
+        .tf-header a.tf-btn { font-size: 12px !important; padding: 9px 20px !important; white-space: nowrap !important; flex-shrink: 0 !important; border-radius: 100px !important; }
+        .heading-sub, .heading-sub.style-1 { color: #cf12a0 !important; }
+        .tf-btn, a.tf-btn, button.tf-btn { background: linear-gradient(135deg, #cf12a0 0%, #9b0d78 100%) !important; border-color: #cf12a0 !important; color: #fff !important; }
+        .tf-btn:hover, a.tf-btn:hover, button.tf-btn:hover { background: linear-gradient(135deg, #1e1b7e 0%, #151454 100%) !important; border-color: #151454 !important; }
+        .tf-btn-2 { color: #cf12a0 !important; border-color: rgba(207,18,160,0.45) !important; }
+        .tf-btn-2:hover { background: rgba(207,18,160,0.12) !important; border-color: #cf12a0 !important; }
+        #goTop { border-color: rgba(207,18,160,0.4) !important; }
+        .tf-social-1 a:hover { color: #cf12a0 !important; }
+        .offcanvas-menu { background: #050510 !important; }
+        .mb-menu-link:hover .text { color: #cf12a0 !important; }
+        .footer-image img { opacity: 0.035 !important; }
+        @media (max-width: 1200px) { .item-link { font-size: 11.5px !important; padding: 6px 7px !important; } .nav-menu-main { gap: 0 !important; } }
+        @media (max-width: 991px) { .tf-header .box-navigation { display: none !important; } }
+
+        .service-hero { background: #000; padding: 160px 0 80px; position: relative; overflow: hidden; }
+        .service-hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(207,18,160,0.25) 0%, transparent 60%), radial-gradient(ellipse 50% 50% at 10% 50%, rgba(21,20,84,0.5) 0%, transparent 70%); }
+        .service-hero .container { position: relative; z-index: 2; }
+        .solution-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(207,18,160,0.18); border-radius: 16px; padding: 28px; transition: all 0.3s ease; height: 100%; }
+        .solution-card:hover { background: rgba(207,18,160,0.08); border-color: rgba(207,18,160,0.4); transform: translateY(-4px); }
+        .solution-card i { color: #cf12a0; font-size: 2rem; margin-bottom: 16px; display: block; }
+        .solution-card h5 { color: #fff; margin-bottom: 10px; }
+        .solution-card p { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin: 0; }
+        .differentiator-card { background: linear-gradient(135deg, rgba(21,20,84,0.5) 0%, rgba(8,7,28,0.8) 100%); border: 1px solid rgba(207,18,160,0.2); border-radius: 16px; padding: 32px; text-align: center; height: 100%; }
+        .differentiator-card .icon-wrap { width: 64px; height: 64px; border-radius: 50%; background: rgba(207,18,160,0.15); display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; border: 1px solid rgba(207,18,160,0.3); }
+        .differentiator-card i { color: #cf12a0; font-size: 1.5rem; }
+        .differentiator-card h5 { color: #fff; margin-bottom: 10px; }
+        .differentiator-card p { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin: 0; }
+        .cta-banner { background: linear-gradient(135deg, #0e0c28 0%, #151454 50%, #0e0c28 100%); border-top: 1px solid rgba(207,18,160,0.25); border-bottom: 1px solid rgba(207,18,160,0.25); padding: 70px 0; text-align: center; }
+        .references-band { background: linear-gradient(135deg, #151454 0%, #0d0d38 100%); padding: 40px 0; text-align: center; }
+        .ref-badge { display: inline-block; padding: 10px 22px; border: 1px solid rgba(255,255,255,0.15); border-radius: 100px; color: rgba(255,255,255,0.75); font-weight: 600; font-size: 0.85rem; margin: 6px; white-space: nowrap; }
+        .section-dark { background: #07071a; padding: 80px 0; }
+        .section-dark-2 { background: #050510; padding: 80px 0; }
+    </style>
+</head>
+
+<body class="counter-scroll">
+    <button id="goTop"><span class="border-progress"></span><span class="ic-wrap"><span class="icon icon-long-arrow-alt-up-solid"></span></span></button>
+
+    <main id="wrapper">
+        <header class="tf-header header2">
+            <div class="header-inner">
+                <a href="index-activium.html" class="logo-site" style="text-decoration:none;">
+                    <svg width="210" height="54" viewBox="0 0 210 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 42 Q22 34 42 42 Q62 50 82 42 Q102 34 122 42 Q142 50 162 42 Q182 34 206 40" stroke="#cf12a0" stroke-width="1.3" fill="none" opacity="0.45" stroke-linecap="round"/>
+                        <rect x="0" y="8" width="3" height="38" rx="2" fill="url(#lgAccCo)"/>
+                        <text x="14" y="32" font-family="'Arial Black','Arial',sans-serif" font-size="23" font-weight="900" fill="#ffffff" letter-spacing="2.5">ACTIVIUM</text>
+                        <text x="15" y="46" font-family="'Arial','Helvetica',sans-serif" font-size="8.5" font-weight="600" fill="#cf12a0" letter-spacing="4.2">INFORMATION DESIGN</text>
+                        <defs><linearGradient id="lgAccCo" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cf12a0"/><stop offset="100%" stop-color="#151454"/></linearGradient></defs>
+                    </svg>
+                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item"><a href="index-activium.html" class="item-link link1">Accueil</a></li>
+                        <li class="menu-item has-sub">
+                            <a href="#" class="item-link link1 active">Services <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="service-cyber.html" class="item-link">Cybersécurité</a></li>
+                                <li><a href="service-cloud.html" class="item-link">Cloud & Infra</a></li>
+                                <li><a href="service-workplace.html" class="item-link">Modern Workplace</a></li>
+                                <li><a href="service-reseaux.html" class="item-link">Réseaux</a></li>
+                                <li><a href="service-ia.html" class="item-link">IA & Automatisation</a></li>
+                                <li><a href="service-conseil.html" class="item-link active">Conseil</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-sub">
+                            <a href="audit-cyber.html" class="item-link link1">Audits <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="audit-cyber.html" class="item-link">Audit Cyber</a></li>
+                                <li><a href="audit-infra.html" class="item-link">Audit Infra</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item"><a href="index-activium.html#about" class="item-link link1">À propos</a></li>
+                        <li class="menu-item"><a href="index-activium.html#contact" class="item-link link1">Contact</a></li>
+                    </ul>
+                </div>
+                <a href="devis.html" class="tf-btn d-lg-flex d-none">Demande de Devis</a>
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex"><i class="icon icon-grip-lines-solid"></i></a>
+            </div>
+        </header>
+
+        <!-- HERO -->
+        <section class="service-hero">
+            <div class="container">
+                <div class="row justify-content-center text-center">
+                    <div class="col-lg-8">
+                        <div class="heading-sub fw-semibold mb-16" style="color:#cf12a0;display:inline-block;padding:6px 18px;border:1px solid rgba(207,18,160,0.35);border-radius:100px;background:rgba(207,18,160,0.08);font-size:0.85rem;">Conseil & Transformation</div>
+                        <h1 class="text-white fw-semibold mb-20" style="font-size:clamp(2rem,5vw,3.5rem);line-height:1.15;">Un partenaire stratégique pour<br><span style="background:linear-gradient(130deg,#cf12a0,#e855c8,#fff);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;">votre transformation numérique</span></h1>
+                        <p class="text-neutral-400 mb-32" style="font-size:1.1rem;max-width:600px;margin:0 auto 32px;">30 ans d'expertise terrain pour vous accompagner de la stratégie à la mise en œuvre. Des conseils actionnables, pas des rapports qui dorment dans un tiroir.</p>
+                        <div class="d-flex gap-16 justify-content-center flex-wrap">
+                            <a href="audit-cyber.html" class="tf-btn">Demander un audit gratuit</a>
+                            <a href="devis.html" class="tf-btn-2">Demander un devis</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- NOS SOLUTIONS -->
+        <section class="section-dark">
+            <div class="container">
+                <div class="heading-section center mb-56">
+                    <div class="heading-sub fw-semibold">Nos solutions</div>
+                    <h2 class="heading-title text-white">Ce que nous <span style="color:#cf12a0;">déployons</span> pour vous</h2>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="solution-card">
+                            <i class="icon icon-map-solid"></i>
+                            <h5>Schéma directeur SI</h5>
+                            <p>Construction de votre feuille de route IT sur 3 à 5 ans. Alignement SI/métier, priorisation des projets et budget prévisionnel pluriannuel.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="solution-card">
+                            <i class="icon icon-search-solid"></i>
+                            <h5>Audit & diagnostic</h5>
+                            <p>État des lieux complet de votre SI : maturité, risques, dette technique. Rapport détaillé avec recommandations priorisées et plan d'action chiffré.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="solution-card">
+                            <i class="icon icon-user-tie-solid"></i>
+                            <h5>RSSI externalisé (vCISO)</h5>
+                            <p>Directeur de la sécurité informatique à temps partagé. Pilotage de votre politique de sécurité, gestion des risques et interlocuteur direction.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="solution-card">
+                            <i class="icon icon-balance-scale-solid"></i>
+                            <h5>Gouvernance IT</h5>
+                            <p>Mise en place de comités IT, politiques, procédures et indicateurs de performance. ITIL, ISO 27001, COBIT — gouvernance adaptée à votre contexte.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="solution-card">
+                            <i class="icon icon-tasks-solid"></i>
+                            <h5>Gestion de projets</h5>
+                            <p>PMO et direction de projets IT complexes. Méthodes agiles et cycle en V, reporting transparent, gestion des risques et des parties prenantes.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-4">
+                        <div class="solution-card">
+                            <i class="icon icon-users-solid"></i>
+                            <h5>Conduite du changement</h5>
+                            <p>Accompagnement humain de vos transformations. Formation, communication, résistances au changement — vos projets IT réussissent grâce à vos équipes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- POURQUOI ACTIVIUM -->
+        <section class="section-dark-2">
+            <div class="container">
+                <div class="heading-section center mb-56">
+                    <div class="heading-sub fw-semibold">Pourquoi Activium</div>
+                    <h2 class="heading-title text-white">Nos différenciateurs</h2>
+                </div>
+                <div class="row g-4 justify-content-center">
+                    <div class="col-md-4">
+                        <div class="differentiator-card">
+                            <div class="icon-wrap"><i class="icon icon-history-solid"></i></div>
+                            <h5>+30 ans d'expérience terrain</h5>
+                            <p>Fondée en 1993, Activium a vécu toutes les grandes transformations IT. Cette expérience unique évite à nos clients les erreurs déjà faites par d'autres.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="differentiator-card">
+                            <div class="icon-wrap"><i class="icon icon-route-solid"></i></div>
+                            <h5>Accompagnement de A à Z</h5>
+                            <p>De la stratégie à l'exploitation. Nous ne livrons pas un rapport et disparaissons — nous restons à vos côtés jusqu'à la mise en production et au-delà.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="differentiator-card">
+                            <div class="icon-wrap"><i class="icon icon-file-alt-solid"></i></div>
+                            <h5>Rapports actionnables</h5>
+                            <p>Nos livrables sont concrets, priorisés et chiffrés. Pas de jargon inutile — des recommandations que votre direction peut valider et vos équipes exécuter.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="references-band">
+            <div class="container">
+                <p class="text-white fw-semibold mb-20" style="font-size:0.85rem;letter-spacing:0.08em;text-transform:uppercase;opacity:0.6;">Références clients</p>
+                <div>
+                    <span class="ref-badge">Renault-Nissan</span><span class="ref-badge">Airbus</span><span class="ref-badge">SNCF</span><span class="ref-badge">Orange Business</span><span class="ref-badge">TotalEnergies</span><span class="ref-badge">La Poste</span><span class="ref-badge">Société Générale</span><span class="ref-badge">Thales</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="container">
+                <h2 class="text-white fw-semibold mb-12" style="font-size:clamp(1.6rem,4vw,2.5rem);">Protégez votre entreprise aujourd'hui</h2>
+                <p class="text-neutral-400 mb-32">Démarrez votre transformation numérique avec un partenaire qui connaît votre métier.</p>
+                <div class="d-flex gap-16 justify-content-center flex-wrap">
+                    <a href="audit-cyber.html" class="tf-btn">Audit gratuit</a>
+                    <a href="devis.html" class="tf-btn-2">Demander un devis</a>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <div class="footer-image"><img class="effectFade fadeUp" src="assets/images/logo/logo-footer.png" alt=""></div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index-activium.html" class="footer-logo" style="text-decoration:none;">
+                        <svg width="220" height="56" viewBox="0 0 220 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 44 Q24 36 48 44 Q72 52 96 44 Q120 36 144 44 Q168 52 196 44 Q210 40 220 42" stroke="#cf12a0" stroke-width="1.4" fill="none" opacity="0.5" stroke-linecap="round"/>
+                            <rect x="0" y="8" width="3.5" height="40" rx="2" fill="url(#ftAccCo)"/>
+                            <text x="16" y="33" font-family="'Arial Black','Arial',sans-serif" font-size="25" font-weight="900" fill="#ffffff" letter-spacing="2.5">ACTIVIUM</text>
+                            <text x="17" y="49" font-family="'Arial','Helvetica',sans-serif" font-size="9" font-weight="600" fill="#cf12a0" letter-spacing="4.5">INFORMATION DESIGN</text>
+                            <defs><linearGradient id="ftAccCo" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cf12a0"/><stop offset="100%" stop-color="#151454"/></linearGradient></defs>
+                        </svg>
+                    </a>
+                    <div class="title h6 fw-semibold">Restez connecté <br> avec Activium-ID</div>
+                    <div class="text">Ne manquez pas nos actualités IT !</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="https://www.linkedin.com/" target="_blank" class="text-body-1 fw-semibold">LinkedIn <div class="social-item"><i class="icon icon-linkedin-in"></i></div></a>
+                        <a href="mailto:communication@activium-id.com" class="text-body-1 fw-semibold">E-mail <div class="social-item"><i class="icon icon-envelope-solid"></i></div></a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li><a href="index-activium.html" class="fw-semibold link-underline link1">Accueil</a></li>
+                        <li><a href="service-conseil.html" class="fw-semibold link-underline link1">Conseil</a></li>
+                        <li><a href="service-cyber.html" class="fw-semibold link-underline link1">Cybersécurité</a></li>
+                        <li><a href="devis.html" class="fw-semibold link-underline link1">Devis</a></li>
+                        <li><a href="index-activium.html#contact" class="fw-semibold link-underline link1">Contact</a></li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2025 Activium Information Design. Tous droits réservés. — SIRET 339 013 591 00088</p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1"><span class="fw-semibold">Haut de page</span><i class="icon icon-long-arrow-alt-up-solid fs-20"></i></a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content"><div class="container h-100"><div class="offcanvas-content_wrapin">
+            <div class="canvas_head">
+                <a href="index-activium.html" class="logo-site" style="text-decoration:none;">
+                    <svg width="175" height="46" viewBox="0 0 175 46" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="0" y="6" width="3" height="34" rx="2" fill="url(#mbAccCo)"/>
+                        <text x="12" y="27" font-family="'Arial Black','Arial',sans-serif" font-size="19" font-weight="900" fill="#ffffff" letter-spacing="2">ACTIVIUM</text>
+                        <text x="13" y="40" font-family="'Arial','Helvetica',sans-serif" font-size="7.5" font-weight="600" fill="#cf12a0" letter-spacing="3.5">INFORMATION DESIGN</text>
+                        <defs><linearGradient id="mbAccCo" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#cf12a0"/><stop offset="100%" stop-color="#151454"/></linearGradient></defs>
+                    </svg>
+                </a>
+                <div class="btn-mobile-menu close-mb-menu text-caption link"><i class="icon icon-close"></i> FERMER</div>
+            </div>
+            <div class="canvas_center">
+                <ul class="nav-ul-mb" id="mobile-menu">
+                    <li><div class="item"><a href="index-activium.html" class="mb-menu-link text-display-1"><span class="text">Accueil</span></a></div></li>
+                    <li><div class="item"><a href="service-cyber.html" class="mb-menu-link text-display-1"><span class="text">Cybersécurité</span></a></div></li>
+                    <li><div class="item"><a href="service-cloud.html" class="mb-menu-link text-display-1"><span class="text">Cloud & Infra</span></a></div></li>
+                    <li><div class="item"><a href="service-workplace.html" class="mb-menu-link text-display-1"><span class="text">Modern Workplace</span></a></div></li>
+                    <li><div class="item"><a href="service-reseaux.html" class="mb-menu-link text-display-1"><span class="text">Réseaux</span></a></div></li>
+                    <li><div class="item"><a href="service-ia.html" class="mb-menu-link text-display-1"><span class="text">IA & Automatisation</span></a></div></li>
+                    <li><div class="item"><a href="service-conseil.html" class="mb-menu-link text-display-1"><span class="text">Conseil</span></a></div></li>
+                    <li><div class="item"><a href="devis.html" class="mb-menu-link text-display-1"><span class="text">Demande de Devis</span></a></div></li>
+                </ul>
+            </div>
+            <div class="canvas_foot"><div class="left"><a href="mailto:communication@activium-id.com" class="text-caption text-neutral-200">communication@activium-id.com</a><p class="text-caption text-neutral-200">01 44 64 44 64</p></div></div>
+        </div></div></div>
+    </div>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
