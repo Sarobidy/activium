@@ -1,0 +1,1629 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+
+<head>
+    <meta charset="utf-8">
+    <title>Activium Information Design – L'innovation technologique au service de votre performance</title>
+    <meta name="author" content="activium-id.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="description" content="Depuis 2003, ACTIVIUM-ID accompagne les entreprises dans la valorisation de leur patrimoine informatique. Cloud, Cybersécurité, IT Support & AI Solutions.">
+
+    <!-- fonts -->
+    <link rel="stylesheet" href="assets/fonts/fonts.css">
+    <link rel="stylesheet" href="assets/icon/icomoon/style.css">
+    <!-- css -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet" href="assets/css/slick.css">
+    <link rel="stylesheet" href="assets/css/slick.theme.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+
+    <style>
+        /* ══════════════════════════════════════════════════════════
+           ACTIVIUM — BRAND OVERRIDE COMPLET
+           Magenta #cf12a0  |  Navy #151454  |  Black #000000
+        ══════════════════════════════════════════════════════════ */
+
+        /* 1 ── Variable CSS --brand (utilisée partout dans le thème) */
+        :root { --brand: #cf12a0 !important; }
+
+        /* ══════════════════════════════════════════
+           2 ── HEADER & MENU REDESIGN
+        ══════════════════════════════════════════ */
+        /* Header : conteneur pleine largeur */
+        .tf-header { padding-top: 24px !important; }
+        .tf-header.header2 .header-inner,
+        .tf-header .header-inner {
+            max-width: 1380px !important;
+            width: calc(100% - 40px) !important;
+            padding: 10px 20px 10px 20px !important;
+            /* Pill dark glassmorphism */
+            background: rgba(8, 7, 28, 0.88) !important;
+            backdrop-filter: blur(28px) saturate(160%) !important;
+            -webkit-backdrop-filter: blur(28px) saturate(160%) !important;
+            border: 1px solid rgba(207,18,160,0.22) !important;
+            border-radius: 100px !important;
+            box-shadow: 0 8px 40px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.04) inset !important;
+        }
+
+        /* Logo zone */
+        .logo-site { flex-shrink: 0 !important; }
+        .logo-site svg { display: block !important; }
+
+        /* Nav : items sur une ligne, style pill au hover */
+        .nav-menu-main { gap: 2px !important; }
+        .item-link {
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            letter-spacing: 0.04em !important;
+            white-space: nowrap !important;
+            padding: 7px 14px !important;
+            border-radius: 100px !important;
+            color: rgba(255,255,255,0.78) !important;
+            transition: all 0.2s ease !important;
+        }
+        .item-link:hover,
+        .item-link.active {
+            background: rgba(207,18,160,0.15) !important;
+            color: #f580e0 !important;
+            -webkit-text-fill-color: #f580e0 !important;
+        }
+        /* Supprimer le soulignement original */
+        .item-link::before { display: none !important; }
+
+        /* Sous-menus dark */
+        .sub-menu {
+            background: #0a0920 !important;
+            border: 1px solid rgba(207,18,160,0.2) !important;
+            border-radius: 16px !important;
+            box-shadow: 0 16px 48px rgba(0,0,0,0.6) !important;
+        }
+        .sub-menu .item-link { border-radius: 8px !important; color: rgba(255,255,255,0.7) !important; }
+        .sub-menu .item-link:hover { background: rgba(207,18,160,0.12) !important; color: #f580e0 !important; -webkit-text-fill-color: #f580e0 !important; }
+
+        /* CTA bouton dans le header */
+        .tf-header a.tf-btn {
+            font-size: 12px !important;
+            padding: 9px 20px !important;
+            white-space: nowrap !important;
+            flex-shrink: 0 !important;
+            border-radius: 100px !important;
+        }
+
+        /* ══════════════════════════════════════════
+           3 ── CONTRASTES : sections claires vs sombres
+        ══════════════════════════════════════════ */
+
+        /* Sur fond SOMBRE : gradient magenta → rose → blanc (lisible) */
+        .text-gradient-1,
+        .text-gradient-2,
+        .text-gradient-3 {
+            background-image: linear-gradient(130deg, #cf12a0 0%, #e855c8 45%, #ffffff 100%) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        /* Sur fond CLAIR (.box-white) : gradient navy → magenta, PAS vers blanc */
+        .box-white .text-gradient-1,
+        .box-white .text-gradient-2,
+        .box-white .text-gradient-3,
+        .section-pricing .text-gradient-1,
+        .section-pricing .text-gradient-2,
+        .section-pricing .text-gradient-3,
+        .section-faqs .text-gradient-3,
+        .section-contact .text-gradient-3 {
+            background-image: linear-gradient(130deg, #151454 0%, #cf12a0 100%) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+        }
+
+        /* heading-sub : magenta lisible partout */
+        .heading-sub, .heading-sub.style-1 { color: #cf12a0 !important; }
+
+        /* Sur fond clair, le heading-sub doit être foncé-magenta */
+        .box-white .heading-sub { color: #9b0d78 !important; }
+
+        /* ══════════════════════════════════════════
+           4 ── Accordion services actif : texte lisible
+        ══════════════════════════════════════════ */
+        .accordion-faq_item .accordion-action.active-img {
+            /* fond dégradé sombre → lisibilité garantie */
+        }
+        .accordion-faq_item .accordion-action.active-img .accordion-title {
+            color: #ffffff !important;
+        }
+        /* Description dans la card ouverte */
+        .accordion-content .text-neutral-300 { color: rgba(255,255,255,0.72) !important; }
+
+        /* ══════════════════════════════════════════
+           5 ── Couleurs accent globales
+        ══════════════════════════════════════════ */
+        .text-brand { color: #cf12a0 !important; -webkit-text-fill-color: #cf12a0 !important; }
+        .process-card i,
+        .featured-works-item .view-project,
+        .footer-bottom a.action-go-top,
+        .contact-item i,
+        .time.fw-semibold,
+        .statistic-number .prefix { color: #cf12a0 !important; }
+
+        /* ══════════════════════════════════════════
+           6 ── Boutons
+        ══════════════════════════════════════════ */
+        .tf-btn, a.tf-btn, button.tf-btn {
+            background: linear-gradient(135deg, #cf12a0 0%, #9b0d78 100%) !important;
+            border-color: #cf12a0 !important;
+            color: #fff !important;
+        }
+        .tf-btn:hover, a.tf-btn:hover, button.tf-btn:hover {
+            background: linear-gradient(135deg, #1e1b7e 0%, #151454 100%) !important;
+            border-color: #151454 !important;
+        }
+        .tf-btn-2 { color: #cf12a0 !important; border-color: rgba(207,18,160,0.45) !important; }
+        .tf-btn-2:hover { background: rgba(207,18,160,0.12) !important; border-color: #cf12a0 !important; }
+
+        /* 7 ── Sous-titre hero (pill) */
+        .section-hero .sub.fw-semibold {
+            border: 1px solid rgba(207,18,160,0.35) !important;
+            background: rgba(207,18,160,0.08) !important;
+            color: #f580e0 !important;
+        }
+        .section-hero .sub.fw-semibold svg path { fill: #cf12a0 !important; }
+
+        /* 8 ── Fond hero */
+        .section-hero { background: #000 !important; }
+        .section-hero .hero-image {
+            background:
+                radial-gradient(ellipse 100% 70% at 50% -10%, rgba(207,18,160,0.28) 0%, transparent 65%),
+                radial-gradient(ellipse 60% 50% at 15% 50%, rgba(21,20,84,0.55) 0%, transparent 70%),
+                radial-gradient(ellipse 60% 50% at 85% 50%, rgba(21,20,84,0.45) 0%, transparent 70%),
+                #000 !important;
+        }
+
+        /* 9 ── Section-partner (certifs band) */
+        .section-partner {
+            background: linear-gradient(135deg, #151454 0%, #0d0d38 100%) !important;
+        }
+
+        /* 10 ── Boîte noire (team, stats, certifs, engagements) */
+        .box-black { background: #050510 !important; }
+
+        /* 11 ── Section tools */
+        .section-tools {
+            background:
+                radial-gradient(ellipse 80% 80% at 50% 50%,
+                rgba(21,20,84,0.65) 0%, rgba(0,0,0,0.97) 100%) !important;
+        }
+
+        /* 12 ── Barres de progression */
+        .progress-fill,
+        .benefits-progress-item .progress-line,
+        .benefits-progress-item .progress-line::after {
+            background: linear-gradient(90deg, #cf12a0 0%, #e855c8 100%) !important;
+        }
+        /* Texte des barres : lisible sur fond clair */
+        .progress-text.fw-semibold { color: #151454 !important; }
+        .progress-text.fw-semibold i { color: #cf12a0 !important; }
+
+        /* 13 ── Étapes (step items) */
+        .step-item {
+            background: rgba(207,18,160,0.12) !important;
+            border: 1.5px solid rgba(207,18,160,0.35) !important;
+        }
+        .step-item i { color: #cf12a0 !important; }
+
+        /* 14 ── Features center */
+        .features-center {
+            background: linear-gradient(135deg, #cf12a0 0%, #9b0d78 100%) !important;
+            box-shadow: 0 0 64px rgba(207,18,160,0.45) !important;
+        }
+        .simu-electric { background: #cf12a0 !important; }
+
+        /* 15 ── Tags */
+        .tags-item {
+            border: 1px solid rgba(207,18,160,0.4) !important;
+            color: #cf12a0 !important;
+            background: rgba(207,18,160,0.06) !important;
+        }
+        .tags-item:hover {
+            background: #cf12a0 !important;
+            color: #fff !important;
+            border-color: #cf12a0 !important;
+        }
+
+        /* 16 ── Accordion actif : fond sombre + glow magenta, texte blanc ── */
+        .accordion-faq_item .accordion-action.active-img::before,
+        .accordion-faq_item .accordion-action:not(.collapsed)::before {
+            background:
+                radial-gradient(ellipse 70% 50% at 15% 0%, rgba(207,18,160,0.28) 0%, transparent 55%),
+                #0e0c28 !important;
+        }
+        .accordion-faq_item .accordion-action.active-img .accordion-title,
+        .accordion-faq_item .accordion-action:not(.collapsed) .accordion-title {
+            color: #ffffff !important;
+        }
+        .collapse.show .tags-item {
+            border-color: rgba(255,255,255,0.30) !important;
+            color: #fff !important;
+            background: rgba(255,255,255,0.08) !important;
+        }
+        .collapse.show .accordion-content .text,
+        .collapse.show .accordion-content p {
+            color: rgba(255,255,255,0.82) !important;
+        }
+
+        /* 17 ── Awards / certifications */
+        .awards-item { border-color: rgba(207,18,160,0.15) !important; }
+        .awards-item:hover {
+            background: linear-gradient(135deg, rgba(207,18,160,0.08), transparent) !important;
+            border-color: rgba(207,18,160,0.4) !important;
+        }
+
+        /* 18 ── Pricing dark card */
+        .pricing-item.style-black {
+            background: radial-gradient(ellipse at 50% 0%,
+                rgba(207,18,160,0.22) 0%, #151454 55%, #07071a 100%) !important;
+            border-color: rgba(207,18,160,0.3) !important;
+        }
+        /* check items */
+        .list-text.type-check li i { color: #cf12a0 !important; }
+
+        /* 19 ── Toggle switch */
+        .tf-switch-check:checked {
+            background: linear-gradient(135deg, #cf12a0, #9b0d78) !important;
+            box-shadow: 0 0 16px rgba(207,18,160,0.4) !important;
+        }
+
+        /* 20 ── Scroll progress / goTop */
+        #goTop { border-color: rgba(207,18,160,0.4) !important; }
+        #goTop:hover { color: #cf12a0 !important; }
+
+        /* 21 ── Section About col-left */
+        .section-about-us .col-left {
+            background: linear-gradient(135deg, #151454 0%, #0a0932 100%) !important;
+        }
+        .section-about-us .col-left .text-brand {
+            color: #cf12a0 !important;
+            -webkit-text-fill-color: #cf12a0 !important;
+        }
+        .section-about-us .col-left h5 { color: #fff !important; }
+
+        /* 22 ── Review-box counter */
+        .review-box .counter { color: #cf12a0 !important; }
+
+        /* 23 ── Contact section */
+        .section-contact {
+            background: linear-gradient(135deg, #08081e 0%, #151454 50%, #000 100%) !important;
+        }
+
+        /* 24 ── Social hover */
+        .tf-social .social-item:hover { border-color: #cf12a0 !important; }
+        .tf-social-1 a:hover          { color: #cf12a0 !important; }
+
+        /* 25 ── Mobile offcanvas */
+        .offcanvas-menu { background: #050510 !important; }
+        .mb-menu-link:hover .text,
+        .mb-menu-link:focus .text { color: #cf12a0 !important; }
+
+        /* 26 ── Footer watermark */
+        .footer-image img { opacity: 0.035 !important; }
+
+        /* 27 ── Testimoniaux étoiles */
+        .top-icon .icon-star-solid { color: #cf12a0 !important; }
+
+        /* 28 ── Process card bot (numéros) */
+        .process-card .number .text-neutral-200 { color: rgba(255,255,255,0.5) !important; }
+
+        /* 29 ── Responsive : menu reste masqué sous 991px (comportement original) */
+        @media (max-width: 1200px) {
+            .item-link { font-size: 11.5px !important; padding: 6px 7px !important; }
+            .nav-menu-main { gap: 0 !important; }
+        }
+        @media (max-width: 991px) {
+            .tf-header .box-navigation { display: none !important; }
+        }
+    </style>
+</head>
+
+<body class="counter-scroll">
+    <canvas class="cursor-trail" id="trail" style="display: none;"></canvas>
+
+    <!-- Scroll Top -->
+    <button id="goTop">
+        <span class="border-progress"></span>
+        <span class="ic-wrap">
+            <span class="icon icon-long-arrow-alt-up-solid"></span>
+        </span>
+    </button>
+
+    <main id="wrapper">
+
+        <!-- ══ HEADER ════════════════════════════════════════════ -->
+        <header class="tf-header header2">
+            <div class="header-inner">
+                <a href="index-activium.html" class="logo-site" style="text-decoration:none;">                </a>
+                <div class="box-navigation">
+                    <ul class="nav-menu-main">
+                        <li class="menu-item">
+                            <a href="index-activium.html" class="item-link link1 active">Accueil</a>
+                        </li>
+                        <li class="menu-item has-sub">
+                            <a href="#services" class="item-link link1">Services <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="service-cyber.html" class="item-link">Cybersécurité</a></li>
+                                <li><a href="service-cloud.html" class="item-link">Cloud & Infra</a></li>
+                                <li><a href="service-workplace.html" class="item-link">Modern Workplace</a></li>
+                                <li><a href="service-reseaux.html" class="item-link">Réseaux</a></li>
+                                <li><a href="service-ia.html" class="item-link">IA & Automatisation</a></li>
+                                <li><a href="service-conseil.html" class="item-link">Conseil</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item has-sub">
+                            <a href="audit-cyber.html" class="item-link link1">Audits <i class="icon icon-angle-down-solid" style="font-size:10px;margin-left:2px;"></i></a>
+                            <ul class="sub-menu">
+                                <li><a href="audit-cyber.html" class="item-link">Audit Cyber</a></li>
+                                <li><a href="audit-infra.html" class="item-link">Audit Infra</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#about" class="item-link link1">À propos</a>
+                        </li>
+                        <li class="menu-item">
+                            <a href="#contact" class="item-link link1">Contact</a>
+                        </li>
+                    </ul>
+              </div>
+                <a href="devis.html" class="tf-btn d-lg-flex d-none">
+                    Demande de Devis
+                </a>
+                <a href="#" class="tf-btn open-mb-menu mobile-menu d-lg-none d-flex">
+                    <i class="icon icon-grip-lines-solid"></i>
+                </a>
+          </div>
+        </header>
+        <!-- /Header -->
+
+        <!-- ══ HERO ══════════════════════════════════════════════ -->
+        <div class="section-hero">
+            <div class="hero-image"></div>
+            <div class="container">
+                <div class="content-wrap text-center">
+                    <div class="sub fw-semibold effectFade fadeUp">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.53252 12.0966C3.75106 11.5025 4.59108 11.5025 4.81645 12.0966L5.54037 14.0567C5.60866 14.2411 5.75891 14.3913 5.9433 14.4596L7.90335 15.1835C8.49751 15.4021 8.49751 16.2421 7.90335 16.4674L5.9433 17.1914C5.75891 17.2597 5.60866 17.4099 5.54037 17.5943L4.81645 19.5543C4.59791 20.1485 3.75789 20.1485 3.53252 19.5543L2.8086 17.5943C2.74031 17.4099 2.59006 17.2597 2.40566 17.1914L0.44562 16.4674C-0.14854 16.2489 -0.14854 15.4089 0.44562 15.1835L2.40566 14.4596C2.59006 14.3913 2.74031 14.2411 2.8086 14.0567L3.53252 12.0966Z" fill="#cf12a0"/>
+                            <path d="M11.4068 0.670991C11.7346 -0.223664 12.9981 -0.223664 13.3259 0.670991L14.7874 4.61157C14.8898 4.89157 15.1152 5.11011 15.3952 5.21938L19.3358 6.68088C20.2304 7.00869 20.2304 8.27214 19.3358 8.59995L15.3952 10.0614C15.1152 10.1639 14.8967 10.3893 14.7874 10.6693L13.3259 14.6098C12.9981 15.5045 11.7346 15.5045 11.4068 14.6098L9.94534 10.6693C9.8429 10.3893 9.61753 10.1707 9.33752 10.0614L5.39694 8.59995C4.50229 8.27214 4.50229 7.00869 5.39694 6.68088L9.33752 5.21938C9.61753 5.11694 9.83607 4.89157 9.94534 4.61157L11.4068 0.670991Z" fill="#cf12a0"/>
+                        </svg>
+                        +30 ans d'expertise — 1 200 clients — 85 collaborateurs
+                    </div>
+                    <div class="title text-display-2 effectFade fadeRotateX">
+                        <span class="title1 fw-semibold text-gradient-1">Activateur d'innovation</span>
+                        <br>
+                        <div class="title2 d-flex gap-20 justify-content-center flex-wrap">
+                            <span class="fw-semibold text-gradient-1">partenaire de vos enjeux SI</span>
+                        </div>
+                    </div>
+                    <p class="text effectFade fadeUp">
+                        Infogérance, Cloud, Infrastructure, Cybersécurité — <br>nous sécurisons et valorisons votre patrimoine informatique.
+                    </p>
+                    <div class="bot-btns effectFade fadeRotateX">
+                        <a href="#services" class="tf-btn">Découvrir nos solutions</a>
+                        <a href="#contact" class="tf-btn-2">Nous contacter</a>
+                    </div>
+                </div>
+            </div>
+            <a href="#about" class="scroll-more">
+                <span class="fw-semibold link1">Défiler pour découvrir</span>
+                <i class="icon icon-long-arrow-alt-down-solid"></i>
+            </a>
+        </div>
+        <!-- /Hero -->
+
+        <!-- ══ À PROPOS ══════════════════════════════════════════ -->
+        <div class="section-about-us flat-spacing" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="heading-section">
+                            <div class="heading-sub fw-semibold effectFade fadeUp">Qui sommes-nous</div>
+                            <div class="heading-title text-gradient-2 effectFade fadeRotateX">Sécuriser, optimiser <br> et valoriser votre SI</div>
+                        </div>
+                    </div>
+                    <div class="col-xxl-7 col-lg-6 lg-mb-24">
+                        <div class="col-left">
+                            <div class="position-relative z-5">
+                                <div class="sub text-white">
+                                    <span class="dot"></span>
+                                    Paris · Lyon · Île-de-France
+                                </div>
+                                <h5 class="title fw-semibold text-white">Notre siège — <span class="text-brand">Nanterre, 92000</span></h5>
+                                <a href="#contact" class="tf-btn">
+                                    Démarrer un projet
+                                </a>
+                            </div>
+                            <img class="effectFade fadeRotateX" src="assets/images/item/earth.png" alt="">
+                        </div>
+                    </div>
+                    <div class="col-xxl-5 col-lg-6">
+                        <div class="review-box mb-24">
+                            <div class="desc fw-semibold text-body-1">Depuis plus de 30 ans, Activium-ID accompagne Renault-Nissan, Airbus, Bouygues Telecom et 1 200 clients dans la maîtrise de leur patrimoine informatique.</div>
+                            <div class="d-flex justify-content-between flex-wrap align-items-end gap-12">
+                                <div>
+                                    <div class="d-flex gap-4 text mb-10">
+                                        <svg width="26" height="24" viewBox="0 0 26 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M12.6792 18.3019L18.1887 16.9057L20.4906 24L12.6792 18.3019ZM25.3585 9.13208H15.6604L12.6792 0L9.69811 9.13208H0L7.84906 14.7925L4.86792 23.9245L12.717 18.2641L17.5472 14.7925L25.3585 9.13208Z" fill="#cf12a0"/>
+                                        </svg>
+                                        Certifiés & Reconnus
+                                    </div>
+                                </div>
+                                <div class="counter text-neutral-200">
+                                    <span class="number" data-speed="1500" data-to="1200" data-inviewport="yes">800</span><span>+</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="box-quotes effectFade fadeRotateX">
+                            <div class="image">
+                                <img src="assets/images/section/quotes-1.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <div class="icon mb-8">
+                                    <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12.9375 20V10.3597C12.9375 7.72182 13.824 5.51559 15.5969 3.74101C17.4177 1.91847 19.8854 0.671463 23 0V6.40288C21.8021 6.78657 21.0115 7.26619 20.6281 7.84173C20.2448 8.3693 20.0292 9.04077 19.9813 9.85612H23V20H12.9375ZM0 20V10.3597C0 7.72182 0.886459 5.51559 2.65938 3.74101C4.48021 1.91847 6.94792 0.671463 10.0625 0V6.40288C8.9125 6.78657 8.12187 7.26619 7.69062 7.84173C7.30729 8.3693 7.09167 9.04077 7.04375 9.85612H10.0625V20H0Z" fill="#E4E4E7"/>
+                                    </svg>
+                                </div>
+                                <div class="text-body-1 fw-semibold desc">L'informatique ne doit pas être une contrainte technique, mais un moteur stratégique au service de votre développement.</div>
+                                <div class="cite">
+                                    <div class="name text-body-3 fw-semibold">Activium-ID</div>
+                                    <div class="line"></div>
+                                    <div class="sub text-body-3">Notre conviction depuis plus de 30 ans</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /À propos -->
+
+        <!-- ══ PARTENAIRES / CERTIFICATIONS LOGOS ════════════════ -->
+        <div class="section-partner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="partner-wrap">
+                            <p class="text-secondary text fw-semibold">Ils nous font confiance</p>
+                            <div class="infiniteSlide_tech_main d-grid">
+                                <div class="infiniteSlide infiniteSlide_partner" data-clone="5">
+                                    <img src="assets/images/partner/partner-1.svg" alt="WatchGuard">
+                                    <img src="assets/images/partner/partner-2.svg" alt="Huawei">
+                                    <img src="assets/images/partner/partner-3.svg" alt="Fortinet">
+                                    <img src="assets/images/partner/partner-4.svg" alt="Dell Technologies">
+                                    <img src="assets/images/partner/partner-5.svg" alt="Microsoft">
+                                    <img src="assets/images/partner/partner-6.svg" alt="Veeam">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-white">
+            <!-- ══ SERVICES ═══════════════════════════════════════ -->
+            <div id="services" class="section-services flat-spacing">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-xxl-4 col-lg-6">
+                            <div class="d-flex flex-column justify-content-between h-100">
+                                <div class="col-left">
+                                    <div class="heading-section mb-48">
+                                        <div class="heading-sub fw-semibold effectFade fadeUp">Services</div>
+                                        <div class="heading-title text-gradient-3 effectFade fadeRotateX">Nos Solutions <br> IT Complètes</div>
+                                    </div>
+                                    <p class="effectFade fadeUp">Infogérance, Cloud, Infrastructure, Mobilité, Continuité d'activité — des solutions pensées pour booster vos performances.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xxl-6 col-lg-6">
+                            <div class="accordion-faq_list" id="accordion-services">
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn active-img" data-img="assets/images/section/service-1.jpg" data-bs-target="#faq-1" role="button" data-bs-toggle="collapse" aria-controls="faq-1" aria-expanded="true">
+                                        <div class="accordion-title">
+                                            Infogérance & IT Support
+                                            <div class="text-body-1 num">(01)</div>
+                                        </div>
+                                    </div>
+                                    <div id="faq-1" class="collapse show" data-bs-parent="#accordion-services">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">Confiez votre IT à un prestataire extérieur pour booster vos performances. Nous assurons l'exploitation, la maintenance et l'évolution continue de votre SI.</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">Helpdesk 24/7</a>
+                                                <a href="#" class="tags-item fw-semibold">Supervision proactive</a>
+                                                <a href="#" class="tags-item fw-semibold">Externalisation IT</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn collapsed" data-img="assets/images/section/service-2.jpg" data-bs-target="#faq-2" role="button" data-bs-toggle="collapse" aria-controls="faq-2" aria-expanded="false">
+                                        <div class="accordion-title">
+                                            Cloud & Infrastructure
+                                            <div class="text-body-1 num">(02)</div>
+                                        </div>
+                                    </div>
+                                    <div id="faq-2" class="collapse" data-bs-parent="#accordion-services">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">Cloud privé, public ou hybride — Activium-ID vous accompagne de bout en bout. Migration, hébergement haute disponibilité et souveraineté des données garantie.</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">Cloud privé</a>
+                                                <a href="#" class="tags-item fw-semibold">Microsoft Azure</a>
+                                                <a href="#" class="tags-item fw-semibold">Office 365</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn collapsed" data-img="assets/images/section/service-3.jpg" data-bs-target="#faq-3" role="button" data-bs-toggle="collapse" aria-controls="faq-3" aria-expanded="false">
+                                        <div class="accordion-title">
+                                            Cybersécurité & Continuité
+                                            <div class="text-body-1 num">(03)</div>
+                                        </div>
+                                    </div>
+                                    <div id="faq-3" class="collapse" data-bs-parent="#accordion-services">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">Protégez durablement votre SI contre les cybermenaces. Nos solutions garantissent la continuité d'activité et la conformité réglementaire (DORA, NIS2, IA Act).</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">Security as a Service</a>
+                                                <a href="#" class="tags-item fw-semibold">Plan de reprise</a>
+                                                <a href="#" class="tags-item fw-semibold">Conformité DORA/NIS2</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-faq_item effectFade fadeUp" role="presentation">
+                                    <div class="accordion-action services-image-btn collapsed" data-img="assets/images/section/service-4.jpg" data-bs-target="#faq-4" role="button" data-bs-toggle="collapse" aria-controls="faq-4" aria-expanded="false">
+                                        <div class="accordion-title">
+                                            Mobilité & Location évolutive
+                                            <div class="text-body-1 num">(04)</div>
+                                        </div>
+                                    </div>
+                                    <div id="faq-4" class="collapse" data-bs-parent="#accordion-services">
+                                        <div class="accordion-content">
+                                            <div class="text-body-3 text-neutral-300 text">Accélérez votre développement grâce aux solutions mobilité. Optez pour la location évolutive de matériel pour un parc informatique à la pointe de la technologie.</div>
+                                            <div class="list-tags">
+                                                <a href="#" class="tags-item fw-semibold">Solutions mobilité</a>
+                                                <a href="#" class="tags-item fw-semibold">Location matériel</a>
+                                                <a href="#" class="tags-item fw-semibold">Parc informatique</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="services-image effectFade fadeUp">
+                            <img src="assets/images/section/service-1.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Services -->
+
+            <!-- ══ CHIFFRES CLÉS ══════════════════════════════════ -->
+            <div class="section-chiffres flat-spacing pt-0" style="background:#fff;">
+                <div class="container">
+                    <div class="heading-section center mb-48">
+                        <div class="heading-sub fw-semibold effectFade fadeUp">Chiffres Clés</div>
+                        <div class="heading-title text-gradient-3 effectFade fadeRotateX">Activium en chiffres</div>
+                    </div>
+                    <div class="row justify-content-center text-center g-4">
+                        <div class="col-6 col-md-3">
+                            <div class="chiffre-item p-24" style="border:1px solid rgba(207,18,160,0.18);border-radius:16px;background:linear-gradient(135deg,#f7f0fb,#fff);">
+                                <div class="stat-number" style="font-size:2.8rem;font-weight:900;color:#cf12a0;line-height:1;">+1 200</div>
+                                <div class="stat-label fw-semibold mt-8" style="color:#151454;font-size:0.95rem;">clients accompagnés</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="chiffre-item p-24" style="border:1px solid rgba(207,18,160,0.18);border-radius:16px;background:linear-gradient(135deg,#f7f0fb,#fff);">
+                                <div class="stat-number" style="font-size:2.8rem;font-weight:900;color:#cf12a0;line-height:1;">85</div>
+                                <div class="stat-label fw-semibold mt-8" style="color:#151454;font-size:0.95rem;">collaborateurs experts</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="chiffre-item p-24" style="border:1px solid rgba(207,18,160,0.18);border-radius:16px;background:linear-gradient(135deg,#f7f0fb,#fff);">
+                                <div class="stat-number" style="font-size:2.8rem;font-weight:900;color:#cf12a0;line-height:1;">+30</div>
+                                <div class="stat-label fw-semibold mt-8" style="color:#151454;font-size:0.95rem;">ans d'expérience</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="chiffre-item p-24" style="border:1px solid rgba(207,18,160,0.18);border-radius:16px;background:linear-gradient(135deg,#f7f0fb,#fff);">
+                                <div class="stat-number" style="font-size:2.8rem;font-weight:900;color:#cf12a0;line-height:1;">366</div>
+                                <div class="stat-label fw-semibold mt-8" style="color:#151454;font-size:0.95rem;">contrats actifs</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Chiffres Clés -->
+
+            <!-- ══ CLIENTS / RÉFÉRENCES ═══════════════════════════ -->
+            <div class="section-clients flat-spacing pt-0" style="background:#fff;border-top:1px solid rgba(207,18,160,0.1);">
+                <div class="container">
+                    <div class="heading-section center mb-40">
+                        <div class="heading-sub fw-semibold effectFade fadeUp">Références clients</div>
+                        <div class="heading-title text-gradient-3 effectFade fadeRotateX">Ils nous font confiance</div>
+                    </div>
+                    <div class="d-flex flex-wrap justify-content-center align-items-center gap-16 effectFade fadeUp">
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">Renault-Nissan</div>
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">Airbus</div>
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">SNCF</div>
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">Orange Business</div>
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">TotalEnergies</div>
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">La Poste</div>
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">Société Générale</div>
+                        <div class="client-badge" style="padding:14px 28px;border:1px solid rgba(21,20,84,0.15);border-radius:100px;background:#f8f4fd;font-weight:700;color:#151454;font-size:0.88rem;letter-spacing:0.04em;white-space:nowrap;">Thales</div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Références -->
+
+            <!-- ══ NOS RÉALISATIONS ═══════════════════════════════ -->
+            <div id="works" class="section-featured-works flat-spacing pt-0"> </div>
+            <!-- /Réalisations -->
+
+            <!-- ══ NOTRE APPROCHE ═════════════════════════════════ -->
+            <div class="section-process flat-spacing pt-0">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="process-heading h-100">
+                                <div class="heading-section mb-80">
+                                    <div class="heading-sub fw-semibold effectFade fadeUp">Notre Approche</div>
+                                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">De l'audit <br> à la production</div>
+                                </div>
+                                <div class="group-btn-slider">
+                                    <div class="nav-prev-swiper"><i class="icon icon-angle-left-solid"></i></div>
+                                    <div class="nav-next-swiper"><i class="icon icon-angle-right-solid"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="process-slide">
+                                <div dir="ltr" class="swiper tf-swiper swiper-box-shadow" data-preview="1.78" data-tablet="2" data-mobile-sm="1" data-mobile="1" data-loop="false" data-center="false" data-space-lg="24" data-space-md="24" data-space="30">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-search-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">Audit & Diagnostic</h4>
+                                                    <p class="text text-secondary">Analyse complète de votre infrastructure, identification des risques, des opportunités et définition d'une feuille de route.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">3–5 JOURS</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">01</span>
+                                                        <span class="text-neutral-200">/03</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-bolt-solid"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">Déploiement</h4>
+                                                    <p class="text text-secondary">Mise en œuvre des solutions retenues avec une approche agile, des jalons clairs et une communication transparente.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">2–8 SEMAINES</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">02</span>
+                                                        <span class="text-neutral-200">/03</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="process-card">
+                                                <i class="icon icon-user-check-solid-1"></i>
+                                                <div class="content">
+                                                    <h4 class="title fw-semibold">Supervision & Support</h4>
+                                                    <p class="text text-secondary">Exploitation continue, supervision proactive et support réactif pour garantir la disponibilité et la performance de vos systèmes.</p>
+                                                </div>
+                                                <div class="bot">
+                                                    <div class="time fw-semibold">EN CONTINU</div>
+                                                    <div class="number">
+                                                        <span class="text-neutral-400">03</span>
+                                                        <span class="text-neutral-200">/03</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Approche -->
+
+            <!-- ══ POURQUOI ACTIVIUM ══════════════════════════════ -->
+            <div class="section-benefits flat-spacing pt-0">
+                <div class="container">
+                    <div class="heading-section center mb-70">
+                        <div class="heading-sub fw-semibold effectFade fadeUp">Pourquoi Activium-ID</div>
+                        <div class="heading-title text-gradient-3 effectFade fadeRotateX">Expertise, Fiabilité <br> & Performance</div>
+                    </div>
+                    <div class="row mb-24">
+                        <div class="col-lg-7">
+                            <div class="benefits-box benefits-progress">
+                                <div class="benefits-progress-inner">
+                                    <div class="benefits-progress-item">
+                                        <div class="progress-line" data-progress="95"></div>
+                                        <div class="progress-text fw-semibold">
+                                            <i class="icon icon-shield-alt-solid"></i>
+                                            Sécurité
+                                        </div>
+                                    </div>
+                                    <div class="benefits-progress-item">
+                                        <div class="progress-line" data-progress="98"></div>
+                                        <div class="progress-text fw-semibold">
+                                            <i class="icon icon-tachometer-alt-solid"></i>
+                                            Disponibilité
+                                        </div>
+                                    </div>
+                                    <div class="benefits-progress-item">
+                                        <div class="progress-line" data-progress="90"></div>
+                                        <div class="progress-text fw-semibold">
+                                            <i class="icon icon-bullseye-solid"></i>
+                                            Performance
+                                        </div>
+                                    </div>
+                                    <div class="benefits-progress-item">
+                                        <div class="progress-line" data-progress="85"></div>
+                                        <div class="progress-text fw-semibold">
+                                            <i class="icon icon-coins-solid"></i>
+                                            Optimisation coûts
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="content">
+                                    <h6 class="fw-semibold title">Résultats mesurables</h6>
+                                    <p class="text text-secondary">Nous mesurons l'impact réel de nos interventions — disponibilité, sécurité, performance et maîtrise des coûts — pour vous garantir un ROI concret.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5">
+                            <div class="benefits-box benefits-step effectFade fadeUp">
+                                <div class="benefits-step-inner">
+                                    <div class="line-step"></div>
+                                    <div class="step-item"><i class="icon icon-check-solid"></i></div>
+                                    <div class="step-item"><i class="icon icon-check-solid"></i></div>
+                                    <div class="step-item"><i class="icon icon-check-solid"></i></div>
+                                </div>
+                                <div class="content">
+                                    <h6 class="fw-semibold title">Proximité & Réactivité</h6>
+                                    <p class="text text-secondary">Accompagnement quotidien via une approche pragmatique et orientée résultats. Nous comprenons vos enjeux métiers.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="benefits-box benefits-secure">
+                                <div class="benefits-secure-inner text-center">
+                                    <img src="assets/images/item/benefits-1.svg" alt="">
+                                </div>
+                                <div class="content">
+                                    <h6 class="fw-semibold title">Sécurité by Design</h6>
+                                    <p class="text text-secondary">ISO 27001, conformité RGPD, chiffrement, audit trails — la sécurité est intégrée nativement dans chacune de nos solutions.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="benefits-box benefits-design">
+                                <div class="benefits-design-inner">
+                                    <img class="item-img-1" src="assets/images/item/benefits-2.svg" alt="">
+                                    <img class="item-img-2 rightleft" src="assets/images/item/benefits-3.png" alt="">
+                                    <img class="item-img-3 updown" src="assets/images/item/benefits-4.png" alt="">
+                                </div>
+                                <div class="content">
+                                    <h6 class="fw-semibold title">IT Durable & Responsable</h6>
+                                    <p class="text text-secondary">Nous réduisons l'empreinte environnementale de votre numérique — optimisation énergétique, virtualisation et green IT au cœur de notre approche.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Pourquoi Activium -->
+
+            <!-- ══ NOS SOLUTIONS AS A SERVICE ════════════════════ -->
+            <div id="solutions" class="section-features flat-spacing pt-0">
+                <div class="container">
+                    <div class="heading-section center mb-64">
+                        <div class="heading-sub fw-semibold effectFade fadeUp">Nos Solutions</div>
+                        <div class="heading-title text-gradient-3 effectFade fadeRotateX">As a Service</div>
+                    </div>
+                </div>
+                <div class="position-relative">
+                    <div class="container z-5">
+                        <div class="features-wrap justify-content-between">
+                            <div class="features-col col-left lg-mb-24">
+                                <div class="features-item effectFade fadeUp">
+                                    <i class="icon icon-server-solid" style="color:#cf12a0"></i>
+                                    <h6 class="title fw-semibold">Infrastructure as a Service</h6>
+                                    <p class="text-secondary">Votre infrastructure sur site ou hébergée en haute disponibilité, sécurisée by design. Sans engagement et paiement à l'usage.</p>
+                                </div>
+                                <div class="features-item effectFade fadeUp">
+                                    <i class="icon icon-wifi-solid" style="color:#cf12a0"></i>
+                                    <h6 class="title fw-semibold">NetWork as a Service</h6>
+                                    <p class="text-secondary">Vos infrastructures réseau et WiFi maintenues, sécurisées et sauvegardées en permanence. Supervision proactive incluse.</p>
+                                </div>
+                                <div class="features-item effectFade fadeUp">
+                                    <i class="icon icon-shield-alt-solid" style="color:#cf12a0"></i>
+                                    <h6 class="title fw-semibold">Security as a Service</h6>
+                                    <p class="text-secondary">La sécurisation de vos équipements et de vos points d'accès. Protection continue contre les menaces internes et externes.</p>
+                                </div>
+                            </div>
+                            <div class="features-center flex-shrink">
+                                <!-- Activium center logo -->
+                                <svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="60" cy="60" r="58" stroke="#cf12a0" stroke-width="2" opacity="0.5"/>
+                                    <circle cx="60" cy="60" r="44" stroke="#cf12a0" stroke-width="1" opacity="0.3"/>
+                                    <text x="50%" y="52%" dominant-baseline="middle" text-anchor="middle" font-family="Arial Black, sans-serif" font-size="8" font-weight="900" fill="white" letter-spacing="1">ACTIVIUM</text>
+                                    <text x="50%" y="64%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#cf12a0" letter-spacing="2">ID</text>
+                                </svg>
+                            </div>
+                            <div class="features-col col-right">
+                                <div class="features-item effectFade fadeUp" data-delay="0.1">
+                                    <i class="icon icon-robot-solid" style="color:#cf12a0"></i>
+                                    <h6 class="title fw-semibold">AI & Automation</h6>
+                                    <p class="text-secondary">Déploiement de solutions d'intelligence artificielle pour automatiser vos processus métier et améliorer la productivité de vos équipes.</p>
+                                </div>
+                                <div class="features-item effectFade fadeUp" data-delay="0.1">
+                                    <i class="icon icon-headset-solid" style="color:#cf12a0"></i>
+                                    <h6 class="title fw-semibold">Support & Expertise</h6>
+                                    <p class="text-secondary">Délégation de l'exploitation et de l'évolution continue de votre SI, tout en maîtrisant vos coûts et vos risques. Helpdesk réactif.</p>
+                                </div>
+                                <div class="features-item effectFade fadeUp" data-delay="0.1">
+                                    <i class="icon icon-leaf-solid" style="color:#cf12a0"></i>
+                                    <h6 class="title fw-semibold">Green IT</h6>
+                                    <p class="text-secondary">Réduction de l'empreinte environnementale du numérique. Virtualisation, optimisation énergétique et IT plus durable.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="side-line-main d-none d-lg-block wow fadeIn">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-lg-4 mx-auto">
+                                    <div class="side-line-wrap">
+                                        <div class="link-break-line left">
+                                            <div class="link-break-line">
+                                                <span class="item top"></span>
+                                                <span class="item bottom"></span>
+                                            </div>
+                                        </div>
+                                        <div class="link-break-center">
+                                            <span class="simu-electric left"></span>
+                                            <span class="simu-electric right"></span>
+                                        </div>
+                                        <div class="link-break-line right">
+                                            <span class="item top"></span>
+                                            <span class="item bottom"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Solutions -->
+        </div>
+
+        <!-- ══ SECTION OUTILS / PARTENAIRES ═════════════════════ -->
+        <div class="section-tools flat-spacing">
+            <img class="img-1 img-grow-1" src="assets/images/item/item-4.svg" alt="">
+            <img class="img-2 img-grow-2" src="assets/images/item/item-5.svg" alt="">
+            <img class="img-3 img-grow-3" src="assets/images/item/item-6.svg" alt="">
+            <img class="img-4 img-grow-4" src="assets/images/item/item-7.svg" alt="">
+            <img class="img-5 img-grow-5" src="assets/images/item/item-8.svg" alt="">
+            <img class="img-6 img-grow-6" src="assets/images/item/item-9.svg" alt="">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-5 col-md-8 text-center">
+                        <div class="heading-section center mb-48">
+                            <div class="heading-sub fw-semibold effectFade fadeUp">Écosystème</div>
+                            <div class="heading-title text-gradient-3 effectFade fadeRotateX">Nous travaillons avec les meilleurs outils IT</div>
+                        </div>
+                        <div class="text effectFade fadeUp">
+                            WatchGuard, Huawei, Fortinet, Dell, Microsoft, Veeam, VMware — nous sélectionnons pour vous les solutions les plus adaptées à vos enjeux.
+                        </div>
+                        <a href="#contact" class="tf-btn effectFade fadeRotateX">
+                            Démarrer un projet
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="box-black">
+            <div class="light-box"></div>
+            <img class="light-top" src="assets/images/item/light-top.png" alt="">
+            <img class="light-bot" src="assets/images/item/light-bot.png" alt="">
+
+            <!-- ══ ÉQUIPE ══════════════════════════════════════════ -->
+            <div class="section-team flat-spacing">
+                <div class="container">
+                    <div class="heading-section center mb-64">
+                        <div class="heading-sub fw-semibold style-1 effectFade fadeUp">Notre Équipe</div>
+                        <div class="heading-title text-white effectFade fadeRotateX">Des Experts à <br> Votre Service</div>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-4 col-md-8 lg-mb-24">
+                            <div class="team-item h-100 effectFade fadeUp">
+                                <div class="image"><img src="assets/images/team/team-1.jpg" alt=""></div>
+                                <a href="#" class="name h6 fw-semibold">Direction Générale</a>
+                                <div class="sub text-body-1">Vision & Stratégie IT</div>
+                                <div class="tf-social justify-content-center">
+                                    <a href="#" class="social-item"><i class="icon icon-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6 lg-mb-24">
+                            <div class="team-item style-1 mb-24 effectFade fadeUp">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-2.jpg" alt=""></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="#" class="social-item"><i class="icon icon-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#" class="name text-body-1 fw-semibold">Pôle Cybersécurité</a>
+                                <div class="sub">Experts certifiés CISSP & CISM</div>
+                            </div>
+                            <div class="team-item style-1 effectFade fadeUp">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-3.jpg" alt=""></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="#" class="social-item"><i class="icon icon-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#" class="name text-body-1 fw-semibold">Pôle Cloud & Infra</a>
+                                <div class="sub">Architectes certifiés AWS, Azure, VMware</div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-6">
+                            <div class="team-item style-1 mb-24 effectFade fadeUp" data-delay="0.1">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-4.jpg" alt=""></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="#" class="social-item"><i class="icon icon-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#" class="name text-body-1 fw-semibold">Pôle AI & Dev</a>
+                                <div class="sub">Développeurs & Data Scientists</div>
+                            </div>
+                            <div class="team-item style-1 effectFade fadeUp" data-delay="0.1">
+                                <div class="top">
+                                    <div class="image"><img src="assets/images/team/team-5.jpg" alt=""></div>
+                                    <div class="tf-social justify-content-center">
+                                        <a href="#" class="social-item"><i class="icon icon-linkedin-in"></i></a>
+                                    </div>
+                                </div>
+                                <a href="#" class="name text-body-1 fw-semibold">Support & Helpdesk</a>
+                                <div class="sub">Techniciens réactifs, disponibles 5j/7</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Équipe -->
+
+            <!-- ══ STATISTIQUES ══════════════════════════════════ -->
+            <div class="section-statistic">
+                <div class="line"></div>
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-md-6">
+                            <div class="heading-section mb-48">
+                                <div class="heading-sub fw-semibold style-1 effectFade fadeUp">Chiffres Clés</div>
+                                <div class="heading-title text-white effectFade fadeRotateX">Plus de 20 ans <br> d'expertise <br> au service de votre IT</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="statistic-slider">
+                                <div class="text text-body-1 text-neutral-400 effectFade fadeUp">
+                                    +30 ans d'expertise. 85 collaborateurs engagés. 1 200 clients accompagnés. 366 contrats actifs en France et à l'international.
+                                </div>
+                                <div class="swiper swiper-progressbar">
+                                    <div class="group-slider effectFade fadeUp">
+                                        <div class="progress-bar">
+                                            <div class="progress-fill" id="progressBar"></div>
+                                        </div>
+                                        <div class="group-btn-slider">
+                                            <div class="btn-slider progressbar-prev"><i class="icon icon-angle-left-solid"></i></div>
+                                            <div class="btn-slider progressbar-next"><i class="icon icon-angle-right-solid"></i></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-wrapper effectFade fadeUp">
+                                        <div class="swiper-slide">
+                                            <div class="title fw-semibold text-body-1">CLIENTS ACTIFS</div>
+                                            <div class="statistic-number">
+                                                <span class="number text-white fw-semibold">1200</span>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="title fw-semibold text-body-1">ANS D'EXPERTISE</div>
+                                            <div class="statistic-number">
+                                                <span class="number text-white fw-semibold">30</span>
+                                                <span class="prefix text-brand">+</span>
+                                            </div>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <div class="title fw-semibold text-body-1">CONTRATS ACTIFS</div>
+                                            <div class="statistic-number">
+                                                <span class="number text-white fw-semibold">366</span>
+                                                <span class="prefix text-brand">+</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ══ CERTIFICATIONS ════════════════════════════════ -->
+            <div id="certifications" class="section-awards flat-spacing">
+                <div class="container">
+                    <div class="heading-section center mb-48">
+                        <div class="heading-sub fw-semibold style-1 mb-0 effectFade fadeUp">Labels &amp; Certifications</div>
+                    </div>
+                    <div class="d-grid gap-16">
+                        <div class="awards-item effectFade fadeUp">
+                            <div class="image"><img src="assets/images/partner/partner-7.svg" alt="WatchGuard"></div>
+                            <div class="title text-body-1 text-white">WatchGuard ONE</div>
+                            <div class="text text-body-1 text-white">Gold Partner</div>
+                            <div class="year text-body-1 text-neutral-400">/ Sécurité réseau</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.1">
+                            <div class="image"><img src="assets/images/partner/partner-8.svg" alt="Huawei"></div>
+                            <div class="title text-body-1 text-white">Huawei Enterprise</div>
+                            <div class="text text-body-1 text-white">Gold Partner</div>
+                            <div class="year text-body-1 text-neutral-400">/ Infrastructure</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.2">
+                            <div class="image"><img src="assets/images/partner/partner-9.svg" alt="Fortinet"></div>
+                            <div class="title text-body-1 text-white">Fortinet ENGAGE</div>
+                            <div class="text text-body-1 text-white">Advocate Partner</div>
+                            <div class="year text-body-1 text-neutral-400">/ Cybersécurité</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.3">
+                            <div class="image"><img src="assets/images/partner/partner-10.svg" alt="Dell"></div>
+                            <div class="title text-body-1 text-white">Dell Technologies</div>
+                            <div class="text text-body-1 text-white">Gold Partner</div>
+                            <div class="year text-body-1 text-neutral-400">/ Matériel & stockage</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.4">
+                            <div class="image"><img src="assets/images/partner/partner-1.svg" alt="Microsoft"></div>
+                            <div class="title text-body-1 text-white">Microsoft</div>
+                            <div class="text text-body-1 text-white">Solutions Partner — Espace de travail moderne</div>
+                            <div class="year text-body-1 text-neutral-400">/ Cloud & productivité</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.5">
+                            <div class="image"><img src="assets/images/partner/partner-2.svg" alt="ISO 27001"></div>
+                            <div class="title text-body-1 text-white">ISO 27001</div>
+                            <div class="text text-body-1 text-white">Certifié Sécurité de l'Information</div>
+                            <div class="year text-body-1 text-neutral-400">/ Norme internationale</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.6">
+                            <div class="image"><img src="assets/images/partner/partner-3.svg" alt="Veeam"></div>
+                            <div class="title text-body-1 text-white">Veeam</div>
+                            <div class="text text-body-1 text-white">Gold Pro Partner</div>
+                            <div class="year text-body-1 text-neutral-400">/ Sauvegarde & reprise</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.7">
+                            <div class="image"><img src="assets/images/partner/partner-4.svg" alt="VMware"></div>
+                            <div class="title text-body-1 text-white">VMware</div>
+                            <div class="text text-body-1 text-white">Professional Service Provider</div>
+                            <div class="year text-body-1 text-neutral-400">/ Virtualisation</div>
+                        </div>
+                        <div class="awards-item effectFade fadeUp" data-delay="0.8">
+                            <div class="image"><img src="assets/images/partner/partner-5.svg" alt="CLUSIF"></div>
+                            <div class="title text-body-1 text-white">CLUSIF</div>
+                            <div class="text text-body-1 text-white">Adhérent 2025</div>
+                            <div class="year text-body-1 text-neutral-400">/ Club sécurité SI</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Certifications -->
+
+            <!-- ══ NOS ENGAGEMENTS (Testimonials slot) ══════════ -->
+            <div class="section-testimonials flat-spacing pt-0">
+                <div class="container">
+                    <div class="row justify-content-between">
+                        <div class="col-lg-5">
+                            <div class="col-left">
+                                <div class="heading-section mb-48">
+                                    <div class="heading-sub fw-semibold style-1 effectFade fadeUp">Nos Engagements</div>
+                                    <div class="heading-title text-white effectFade fadeRotateX">Ce que nous <br> vous promettons</div>
+                                </div>
+                                <div class="swiper-testimonial_wrap effectFade fadeUp">
+                                    <div dir="ltr" class="swiper tf-swiper swiper-testimonial">
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <div>
+                                                    <div class="top-icon d-flex gap-4">
+                                                        <i class="icon icon-star-solid" style="color:#cf12a0"></i>
+                                                        <i class="icon icon-star-solid" style="color:#cf12a0"></i>
+                                                        <i class="icon icon-star-solid" style="color:#cf12a0"></i>
+                                                        <i class="icon icon-star-solid" style="color:#cf12a0"></i>
+                                                        <i class="icon icon-star-solid" style="color:#cf12a0"></i>
+                                                    </div>
+                                                    <div class="text-body-1 text-white desc">Transformer l'IT en levier de compétitivité pour chaque entreprise que nous accompagnons, quelle que soit sa taille.</div>
+                                                    <div class="cite">
+                                                        <img class="line-left" src="assets/images/item/line-1.png" alt="">
+                                                        <div class="name text-body-3 text-neutral-400 fw-semibold">Compétitivité</div>
+                                                        <div class="line"></div>
+                                                        <div class="sub text-body-3 text-neutral-400">Engagement N°1</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div>
+                                                    <div class="top-icon">
+                                                        <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.9375 20V10.3597C12.9375 7.72182 13.824 5.51559 15.5969 3.74101C17.4177 1.91847 19.8854 0.671463 23 0V6.40288C21.8021 6.78657 21.0115 7.26619 20.6281 7.84173C20.2448 8.3693 20.0292 9.04077 19.9813 9.85612H23V20H12.9375ZM0 20V10.3597C0 7.72182 0.886459 5.51559 2.65938 3.74101C4.48021 1.91847 6.94792 0.671463 10.0625 0V6.40288C8.9125 6.78657 8.12187 7.26619 7.69062 7.84173C7.30729 8.3693 7.09167 9.04077 7.04375 9.85612H10.0625V20H0Z" fill="#cf12a0"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="text-body-1 text-white desc">Réduire la complexité sans réduire la performance. Automatiser intelligemment pour gagner en efficacité opérationnelle.</div>
+                                                    <div class="cite">
+                                                        <img class="line-left" src="assets/images/item/line-1.png" alt="">
+                                                        <div class="name text-body-3 text-neutral-400 fw-semibold">Simplicité & Efficacité</div>
+                                                        <div class="line"></div>
+                                                        <div class="sub text-body-3 text-neutral-400">Engagement N°2</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <div>
+                                                    <div class="top-icon">
+                                                        <svg width="23" height="20" viewBox="0 0 23 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M12.9375 20V10.3597C12.9375 7.72182 13.824 5.51559 15.5969 3.74101C17.4177 1.91847 19.8854 0.671463 23 0V6.40288C21.8021 6.78657 21.0115 7.26619 20.6281 7.84173C20.2448 8.3693 20.0292 9.04077 19.9813 9.85612H23V20H12.9375ZM0 20V10.3597C0 7.72182 0.886459 5.51559 2.65938 3.74101C4.48021 1.91847 6.94792 0.671463 10.0625 0V6.40288C8.9125 6.78657 8.12187 7.26619 7.69062 7.84173C7.30729 8.3693 7.09167 9.04077 7.04375 9.85612H10.0625V20H0Z" fill="#cf12a0"/>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="text-body-1 text-white desc">Sécuriser durablement sans alourdir l'expérience utilisateur. Agir de manière responsable en réduisant l'empreinte numérique.</div>
+                                                    <div class="cite">
+                                                        <img class="line-left" src="assets/images/item/line-1.png" alt="">
+                                                        <div class="name text-body-3 text-neutral-400 fw-semibold">Sécurité Durable</div>
+                                                        <div class="line"></div>
+                                                        <div class="sub text-body-3 text-neutral-400">Engagement N°3</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="group-slider">
+                                        <div class="group-btn-slider">
+                                            <div class="btn-slider nav-prev-swiper testimonials-prev"><i class="icon icon-angle-left-solid"></i></div>
+                                            <div class="btn-slider nav-next-swiper testimonials-next"><i class="icon icon-angle-right-solid"></i></div>
+                                        </div>
+                                        <div class="testimonials-pagination"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div dir="ltr" class="swiper sw-main-image effectFade fadeUp">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide"><div class="testimonial-image"><img src="assets/images/section/tes-1.jpg" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="testimonial-image"><img src="assets/images/section/tes-2.jpg" alt=""></div></div>
+                                    <div class="swiper-slide"><div class="testimonial-image"><img src="assets/images/section/tes-3.jpg" alt=""></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /Engagements -->
+        </div>
+
+        <!-- ══ NOS OFFRES ════════════════════════════════════════ -->
+        <div id="pricing" class="section-pricing flat-spacing">
+            <div class="container">
+                <div class="heading-section mb-80">
+                    <div class="heading-sub fw-semibold effectFade fadeUp">Nos Offres</div>
+                    <div class="heading-title text-gradient-3 gap-8 effectFade fadeRotateX">
+                        Sans engagement, <br>
+                        <div class="h-8 d-none d-lg-block"></div>
+                        paiement à l'usage — <br>
+                        <div class="h-8 d-none d-lg-block"></div>
+                        <input type="checkbox" id="pricingSwitch" class="tf-switch-check" checked>&nbsp;tarif annuel.
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6 lg-mb-24">
+                        <div class="pricing-item h-100 effectFade fadeRotateX">
+                            <div class="top d-flex gap-12 align-items-center">
+                                <div class="d-flex gap-8 align-items-center">
+                                    <i class="icon icon-server-solid fs-24"></i>
+                                    <div class="fw-semibold text">Offre Essentielle</div>
+                                </div>
+                                <div class="line"></div>
+                                <div class="fw-semibold text-secondary">PME & ETI</div>
+                            </div>
+                            <div class="heading">
+                                <div class="d-flex gap-14 align-items-end">
+                                    <div class="price-number fw-bold" data-month="990" data-year="9900">9,900€</div>
+                                </div>
+                                <a href="#contact" class="tf-btn">Demander un devis</a>
+                            </div>
+                            <div class="line"></div>
+                            <div class="content">
+                                <div>
+                                    <div class="title fw-semibold mb-4">Inclus dans l'offre</div>
+                                    <div class="text fw-semibold">Infrastructure, réseau et sécurité managés — sans engagement, paiement à l'usage.</div>
+                                </div>
+                                <ul class="list-text type-check">
+                                    <li><i class="icon icon-check-solid"></i>Infrastructure as a Service</li>
+                                    <li><i class="icon icon-check-solid"></i>Network as a Service</li>
+                                    <li><i class="icon icon-check-solid"></i>Security as a Service</li>
+                                    <li><i class="icon icon-check-solid"></i>Support Helpdesk</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="pricing-item h-100 style-black effectFade fadeRotateX" data-delay="0.1">
+                            <div class="top d-flex gap-12 align-items-center">
+                                <div class="d-flex gap-8 align-items-center">
+                                    <i class="icon icon-building fs-24"></i>
+                                    <div class="fw-semibold text">Offre Premium</div>
+                                </div>
+                                <div class="line"></div>
+                                <div class="fw-semibold text-neutral-400">Grandes organisations</div>
+                            </div>
+                            <div class="heading">
+                                <div class="d-flex gap-14 align-items-end">
+                                    <div class="price-number fw-bold" data-month="1900" data-year="19900">19,900€</div>
+                                </div>
+                                <a href="#contact" class="tf-btn">Demander un devis</a>
+                            </div>
+                            <div class="line"></div>
+                            <div class="content">
+                                <div>
+                                    <div class="title fw-semibold mb-4">Inclus dans l'offre</div>
+                                    <div class="text fw-semibold">Tout l'essentiel + Cloud, IA, Automation et Conseil stratégique pour accélérer votre transformation.</div>
+                                </div>
+                                <ul class="list-text type-check">
+                                    <li><i class="icon icon-check-solid"></i>Tout l'Offre Essentielle</li>
+                                    <li><i class="icon icon-check-solid"></i>Cloud Computing avancé</li>
+                                    <li><i class="icon icon-check-solid"></i>AI & Automation Solutions</li>
+                                    <li><i class="icon icon-check-solid"></i>Conseil & Expertise stratégique</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Offres -->
+
+        <!-- ══ FAQ ═══════════════════════════════════════════════ -->
+        <div class="section-faqs flat-spacing pt-0">
+            <div class="container">
+                <div class="heading-section center mb-64">
+                    <div class="heading-sub fw-semibold effectFade fadeUp">FAQ</div>
+                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">Questions <br> fréquentes</div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="accordion-asked" id="accordion-asked">
+                            <div class="accordion-asked-item effectFade fadeRotateX">
+                                <div class="accordion-asked-title" id="asked1">
+                                    <button class="accordion-button text-body-1 fw-semibold" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        Quels types d'entreprises accompagnez-vous ?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse1" role="region" class="accordion-collapse collapse show" aria-labelledby="asked1" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Nous accompagnons les PME, ETI et grandes organisations dans tous les secteurs (finance, santé, industrie, retail…). Depuis 2003, notre approche s'adapte à chaque contexte métier, quelle que soit la taille de la structure.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.1">
+                                <div class="accordion-asked-title" id="asked2">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        Comment fonctionne le modèle "paiement à l'usage" ?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse2" role="region" class="accordion-collapse collapse" aria-labelledby="asked2" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Nos offres As a Service sont sans engagement de durée. Vous ne payez que ce que vous consommez réellement — infrastructure, réseau, sécurité. Pas de frais cachés, facturation mensuelle transparente et ajustable selon vos besoins.
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.2">
+                                <div class="accordion-asked-title" id="asked3">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        Quelles sont vos certifications en cybersécurité ?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse3" role="region" class="accordion-collapse collapse" aria-labelledby="asked3" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Activium-ID est certifié ISO 27001, adhérent CLUSIF, et partenaire Gold de WatchGuard, Fortinet et Dell Technologies. Nos ingénieurs sont également certifiés CISSP, CISM et sur les principales plateformes cloud (Azure, AWS, VMware).
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-asked-item effectFade fadeRotateX" data-delay="0.3">
+                                <div class="accordion-asked-title" id="asked4">
+                                    <button class="accordion-button text-body-1 fw-semibold collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        Quel est le délai de mise en œuvre d'une solution ?
+                                        <span class="right-icon"></span>
+                                    </button>
+                                </div>
+                                <div id="collapse4" role="region" class="accordion-collapse collapse" aria-labelledby="asked4" data-bs-parent="#accordion-asked">
+                                    <div class="accordion-body">
+                                        Après un audit initial de 3 à 5 jours, le déploiement varie de 2 à 8 semaines selon la complexité du projet. Nous assurons une transition sans interruption de service, avec accompagnement au changement et formation des équipes.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /FAQ -->
+
+        <!-- ══ CONTACT ════════════════════════════════════════════ -->
+        <div id="contact" class="flat-spacing pt-0">
+            <div class="section-contact">
+                <div class="contact-image">
+                    <img src="assets/images/section/contact-image-bg.jpg" alt="">
+                </div>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="col-left">
+                                <div class="heading-section mb-48">
+                                    <div class="heading-sub fw-semibold effectFade fadeUp">Contact</div>
+                                    <div class="heading-title text-gradient-3 effectFade fadeRotateX">Parlons de <br> votre transformation numérique</div>
+                                </div>
+                                <div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX">
+                                        <i class="icon icon-envelope-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Adresse e-mail</div>
+                                            <div class="text">communication@activium-id.com</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX" data-delay="0.1">
+                                        <i class="icon icon-headset-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Téléphone</div>
+                                            <div class="text">Paris : 01 44 64 44 64</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item mb-20 effectFade fadeRotateX" data-delay="0.15">
+                                        <i class="icon icon-headset-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Téléphone Lyon</div>
+                                            <div class="text">Lyon : 04 72 85 79 90</div>
+                                        </div>
+                                    </div>
+                                    <div class="contact-item effectFade fadeRotateX" data-delay="0.2">
+                                        <i class="icon icon-map-marker-alt-solid"></i>
+                                        <div class="content">
+                                            <div class="title fw-semibold mb-2">Adresse</div>
+                                            <div class="text">120/130 avenue du 8 mai 1945<br>Nanterre 92000</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <form class="form-contact effectFade fadeUp">
+                                <h4 class="heading fw-semibold">Remplissez ce formulaire</h4>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">Votre Nom</label>
+                                    <input type="text" placeholder="Entrez votre nom complet" required>
+                                </fieldset>
+                                <fieldset class="mb-21">
+                                    <label class="fw-semibold text-body-3 mb-20">Votre Téléphone / Email</label>
+                                    <input type="text" placeholder="Téléphone ou adresse e-mail" required>
+                                </fieldset>
+                                <fieldset class="mb-18">
+                                    <label class="fw-semibold text-body-3 mb-0">Décrivez votre besoin</label>
+                                    <textarea name="text"></textarea>
+                                </fieldset>
+                                <div class="attachment d-flex gap-8 align-items-center">
+                                    <i class="icon icon-paperclip-solid fs-24"></i>
+                                    <div class="fw-semibold text-body-3">Ajouter une pièce jointe</div>
+                                </div>
+                                <button type="submit" class="tf-btn w-100">Envoyer le message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /Contact -->
+
+        <!-- ══ FOOTER ════════════════════════════════════════════ -->
+        <footer>
+            <div class="footer-image">
+                <img class="effectFade fadeUp" src="assets/images/logo/logo-footer.png" alt="">
+            </div>
+            <div class="container">
+                <div class="footer-content">
+                    <a href="index-activium.html" class="footer-logo" style="text-decoration:none;">                    </a>
+                  <div class="title h6 fw-semibold">Restez connecté <br> avec Activium-ID</div>
+                    <div class="text">Ne manquez pas nos actualités IT !</div>
+                    <div class="tf-social-1 justify-content-center">
+                        <a href="https://www.linkedin.com/" target="_blank" class="text-body-1 fw-semibold">
+                            LinkedIn
+                            <div class="social-item"><i class="icon icon-linkedin-in"></i></div>
+                        </a>
+                        <a href="https://x.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Twitter / X
+                            <div class="social-item"><i class="icon icon-twitter-x"></i></div>
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank" class="text-body-1 fw-semibold">
+                            Facebook
+                            <div class="social-item"><i class="icon icon-facebook-f"></i></div>
+                        </a>
+                        <a href="mailto:communication@activium-id.com" class="text-body-1 fw-semibold">
+                            E-mail
+                            <div class="social-item"><i class="icon icon-envelope-solid"></i></div>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <ul class="footer-links d-flex gap-24 align-items-center">
+                        <li><a href="#about" class="fw-semibold link-underline link1">À propos</a></li>
+                        <li><a href="#services" class="fw-semibold link-underline link1">Services</a></li>
+                        <li><a href="#solutions" class="fw-semibold link-underline link1">Solutions</a></li>
+                        <li><a href="#contact" class="fw-semibold link-underline link1">Contact</a></li>
+                    </ul>
+                    <p class="text-secondary coppy-rights text-center">© 2025 Activium Information Design. Tous droits réservés. — SIRET 339 013 591 00088</p>
+                    <a href="#" class="action-go-top d-flex gap-8 align-items-center justify-content-end link1">
+                        <span class="fw-semibold">Haut de page</span>
+                        <i class="icon icon-long-arrow-alt-up-solid fs-20"></i>
+                    </a>
+                </div>
+            </div>
+        </footer>
+        <!-- /Footer -->
+
+    </main>
+
+    <!-- Mobile Menu -->
+    <div class="offcanvas-menu">
+        <div class="offcanvas-content">
+            <div class="container h-100">
+                <div class="offcanvas-content_wrapin">
+                    <div class="canvas_head">
+                        <a href="index-activium.html" class="logo-site" style="text-decoration:none;">
+                            <svg width="175" height="46" viewBox="0 0 175 46" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Activium Information Design">
+                                <path d="M4 36 Q22 29 44 36 Q66 43 88 36 Q110 29 132 36 Q152 42 175 38" stroke="#cf12a0" stroke-width="1.1" fill="none" opacity="0.4" stroke-linecap="round"/>
+                                <rect x="0" y="6" width="3" height="34" rx="2" fill="url(#mobileAccent)"/>
+                                <text x="12" y="27" font-family="'Arial Black','Arial',sans-serif" font-size="19" font-weight="900" fill="#ffffff" letter-spacing="2">ACTIVIUM</text>
+                                <text x="13" y="40" font-family="'Arial','Helvetica',sans-serif" font-size="7.5" font-weight="600" fill="#cf12a0" letter-spacing="3.5">INFORMATION DESIGN</text>
+                                <defs>
+                                    <linearGradient id="mobileAccent" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#cf12a0"/>
+                                        <stop offset="100%" stop-color="#151454"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </a>
+                        <div class="btn-mobile-menu close-mb-menu text-caption link">
+                            <i class="icon icon-close"></i>
+                            FERMER
+                        </div>
+                    </div>
+                    <div class="canvas_center">
+                        <ul class="nav-ul-mb" id="mobile-menu">
+                            <li>
+                                <div class="item">
+                                    <a href="#" class="mb-menu-link text-display-1">
+                                        <span class="text">Accueil</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="#about" class="mb-menu-link text-display-1">
+                                        <span class="text">À propos</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <div class="has-sub-menu">
+                                        <a href="#dropdown-menu-1" class="mb-menu-link text-display-1 collapsed" data-bs-toggle="collapse" aria-expanded="false" aria-controls="dropdown-menu-1">
+                                            <span class="text">Services</span>
+                                        </a>
+                                        <div id="dropdown-menu-1" class="collapse" data-bs-parent="#mobile-menu">
+                                            <ul class="sub-nav-menu">
+                                                <li><a href="#services" class="sub-nav-link text-white">Cybersécurité</a></li>
+                                                <li><a href="#services" class="sub-nav-link text-white">Cloud & Infrastructure</a></li>
+                                                <li><a href="#services" class="sub-nav-link text-white">AI & Automation</a></li>
+                                                <li><a href="#services" class="sub-nav-link text-white">Conseil & Expertise</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="#solutions" class="mb-menu-link text-display-1">
+                                        <span class="text">Nos Solutions</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="#certifications" class="mb-menu-link text-display-1">
+                                        <span class="text">Certifications</span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="item">
+                                    <a href="#contact" class="mb-menu-link text-display-1">
+                                        <span class="text">Contact</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="canvas_foot">
+                        <div class="left">
+                            <a href="mailto:communication@activium-id.com" class="text-caption text-neutral-200">communication@activium-id.com</a>
+                            <p class="text-caption text-neutral-200">01 44 64 44 64</p>
+                        </div>
+                        <div class="right">
+                            <a href="https://www.linkedin.com/" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>LINKEDIN
+                            </a>
+                            <a href="https://x.com/" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>TWITTER (X)
+                            </a>
+                            <a href="https://www.activium-id.com" class="tf-link-icon text-caption text-neutral-200">
+                                <i class="icon icon-arrow-top-right"></i>SITE WEB
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /Mobile Menu -->
+
+    <!-- Javascript -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/swiper-bundle.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
+    <script src="assets/js/countto.js"></script>
+    <script src="assets/js/carousel.js"></script>
+    <script src="assets/js/infinityslide.js"></script>
+    <script src="assets/js/ScrollSmooth.js"></script>
+    <script src="assets/js/gsap.min.js"></script>
+    <script src="assets/js/ScrollTrigger.min.js"></script>
+    <script src="assets/js/ScrollToPlugin.min.js"></script>
+    <script src="assets/js/gsapAnimation.js"></script>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
